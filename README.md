@@ -4,10 +4,10 @@
 
 | 站点 | 定位 | 在线访问 |
 | --- | --- | --- |
-| 案例总览 | 一个链接看全部案例，适合直接发给客户 | {{HUB_URL}} |
-| [demo-1-portfolio](demo-1-portfolio/) | 个人主页 / 简历站（¥39 基础版引流款） | {{URL_1}} |
-| [demo-2-landing](demo-2-landing/) | 企业落地页（¥99~299 利润款） | {{URL_2}} |
-| [demo-3-homework](demo-3-homework/) | 学生网页作业模板，5 页（¥39~80 走量款） | {{URL_3}} |
+| 案例总览 | 一个链接看全部案例，适合直接发给客户 | <https://luyongkang777.github.io/web-demos/> |
+| [demo-1-portfolio](demo-1-portfolio/) | 个人主页 / 简历站（¥39 基础版引流款） | <https://luyongkang777.github.io/web-demos/demo-1-portfolio/> |
+| [demo-2-landing](demo-2-landing/) | 企业落地页（¥99~299 利润款） | <https://luyongkang777.github.io/web-demos/demo-2-landing/> |
+| [demo-3-homework](demo-3-homework/) | 学生网页作业模板，5 页（¥39~80 走量款） | <https://luyongkang777.github.io/web-demos/demo-3-homework/> |
 
 ---
 
@@ -34,7 +34,7 @@
 
 ## 交付前必改清单（每个站点通用）
 
-1. **og:image 改为绝对地址**：`<meta property="og:image" content="og.png">` → `https://客户域名/og.png`（微信、微博等分享卡片需要完整网址）。
+1. **og:image 改为客户的绝对地址**：当前 `og:image` 指向本仓库的 GitHub Pages 地址，换域名部署时改为 `https://客户域名/og.png`（微信、微博等分享卡片需要完整网址）。
 2. **署名**：全局搜索替换 `拾页工作室` 为你的店铺名 / 工作室名（作业站点没有卖家署名，见下文）。
 3. **页面标题与描述**：`<title>` 和 `<meta name="description">`。
 4. **favicon.svg**：网站图标，可替换为客户的 Logo（SVG 或 PNG 均可）。
