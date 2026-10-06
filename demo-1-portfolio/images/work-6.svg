@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <!-- 作品封面 6：Mira 设计系统 -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#6366f1" stop-opacity=".55"/><stop offset=".6" stop-color="#6366f1" stop-opacity=".08"/><stop offset="1" stop-color="#6366f1" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glow2" cx="85%" cy="90%" r="45%"><stop offset="0" stop-color="#ec4899" stop-opacity=".35"/><stop offset="1" stop-color="#ec4899" stop-opacity="0"/></radialGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#818cf8"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
+    <linearGradient id="txt" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c7d2fe"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="800" height="600" fill="#0b0b13"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+  <rect width="800" height="600" fill="url(#glow2)"/>
+
+  <text x="72" y="118" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="64" fill="url(#txt)">Mira</text>
+  <text x="76" y="150" font-size="13" fill="#a1a1c2" letter-spacing="3">DESIGN SYSTEM · v2.0</text>
+  <rect x="236" y="76" width="54" height="22" rx="11" fill="#22c55e" fill-opacity=".15" stroke="#22c55e" stroke-opacity=".4"/>
+  <text x="263" y="91" font-size="10" fill="#4ade80" text-anchor="middle" font-weight="700">稳定版</text>
+
+  <!-- 按钮 -->
+  <rect x="72" y="190" width="150" height="48" rx="12" fill="url(#btn)"/>
+  <text x="147" y="219" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">主要按钮</text>
+  <rect x="236" y="190" width="150" height="48" rx="12" fill="#14141f" stroke="#33334a"/>
+  <text x="311" y="219" font-size="14" fill="#e4e4f0" text-anchor="middle">次要按钮</text>
+
+  <!-- 开关 / 复选框 -->
+  <rect x="72" y="262" width="62" height="34" rx="17" fill="#22c55e"/><circle cx="117" cy="279" r="13" fill="#fff"/>
+  <rect x="150" y="262" width="62" height="34" rx="17" fill="#26263a"/><circle cx="167" cy="279" r="13" fill="#8b8ba7"/>
+  <rect x="232" y="264" width="30" height="30" rx="8" fill="#6366f1"/><path d="M240 279l5 5 10-10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="278" y="264" width="30" height="30" rx="8" fill="none" stroke="#3f3f5a" stroke-width="2"/>
+  <circle cx="340" cy="279" r="15" fill="none" stroke="#6366f1" stroke-width="2"/><circle cx="340" cy="279" r="7" fill="#6366f1"/>
+
+  <!-- 输入框 -->
+  <rect x="72" y="320" width="314" height="50" rx="12" fill="#12121c" stroke="#6366f1" stroke-width="1.5"/>
+  <rect x="68" y="316" width="322" height="58" rx="15" fill="none" stroke="#6366f1" stroke-opacity=".25" stroke-width="4"/>
+  <text x="92" y="351" font-size="14" fill="#e4e4f0">hello@mira.design</text>
+  <rect x="222" y="336" width="2" height="20" fill="#818cf8"/>
+
+  <!-- 滑块 -->
+  <path d="M84 410 H374" stroke="#26263a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M84 410 H280" stroke="#6366f1" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="280" cy="410" r="12" fill="#fff"/>
+
+  <!-- 标签 -->
+  <g font-size="11" font-weight="600" text-anchor="middle">
+    <rect x="72" y="446" width="56" height="24" rx="12" fill="#6366f1" fill-opacity=".18"/><text x="100" y="462" fill="#a5b4fc">新功能</text>
+    <rect x="136" y="446" width="56" height="24" rx="12" fill="#ec4899" fill-opacity=".18"/><text x="164" y="462" fill="#f9a8d4">热门</text>
+    <rect x="200" y="446" width="56" height="24" rx="12" fill="#f59e0b" fill-opacity=".18"/><text x="228" y="462" fill="#fcd34d">待审核</text>
+  </g>
+
+  <!-- 色彩 Token -->
+  <g transform="translate(450 190)">
+    <rect width="278" height="128" rx="18" fill="#12121c" stroke="#23233a"/>
+    <text x="22" y="34" font-size="12" fill="#a1a1c2">色彩 Tokens</text>
+    <circle cx="40" cy="80" r="18" fill="#6366f1"/><circle cx="84" cy="80" r="18" fill="#8b5cf6"/><circle cx="128" cy="80" r="18" fill="#ec4899"/><circle cx="172" cy="80" r="18" fill="#f59e0b"/><circle cx="216" cy="80" r="18" fill="#22c55e"/><circle cx="252" cy="80" r="10" fill="#e5e7eb"/>
+  </g>
+  <!-- 字体卡片 -->
+  <g transform="translate(450 336)">
+    <rect width="278" height="160" rx="18" fill="#12121c" stroke="#23233a"/>
+    <text x="22" y="98" font-family="Georgia,'Times New Roman',serif" font-size="78" fill="#fff">Aa</text>
+    <text x="150" y="58" font-size="11" fill="#a1a1c2">标题 H1</text>
+    <text x="150" y="78" font-size="11" fill="#6b6b88">32 / 40 · 粗体</text>
+    <text x="150" y="108" font-size="11" fill="#a1a1c2">正文 Body</text>
+    <text x="150" y="128" font-size="11" fill="#6b6b88">15 / 24 · 常规</text>
+  </g>
+</svg>

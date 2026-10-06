@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>网站定制案例 · 拾页工作室</title>
+  <meta name="description" content="个人主页、企业落地页、学生网页作业——点开即看真实效果，支持按需定制。">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="icon" type="image/svg+xml" href="demo-1-portfolio/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="网站定制案例 · 拾页工作室">
+  <meta property="og:description" content="个人主页、企业落地页、学生网页作业——点开即看真实效果。">
+  <meta property="og:image" content="demo-2-landing/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    /* 改配色只改这里 */
+    :root {
+      --bg: #fafafa; --card: #fff; --text: #0a0a0b; --text-2: #5b5b66; --text-3: #8f8f99;
+      --line: rgba(10, 10, 11, .08); --primary: #4f46e5;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    header { position: relative; padding: 96px 0 56px; text-align: center; overflow: hidden; }
+    header::before {
+      content: ""; position: absolute; inset: -40% 10% auto; height: 560px; z-index: -1;
+      background: radial-gradient(closest-side, rgba(99, 102, 241, .18), transparent), radial-gradient(closest-side at 70% 60%, rgba(34, 211, 238, .12), transparent);
+      filter: blur(20px);
+    }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 5px 14px; font-size: 13.5px; color: var(--text-2); background: var(--card); border: 1px solid var(--line); border-radius: 99px; }
+    .pill i { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; }
+    h1 { margin: 22px 0 0; font-size: clamp(34px, 5.4vw, 56px); line-height: 1.2; letter-spacing: -.025em; text-wrap: balance; }
+    h1 span { background: linear-gradient(100deg, #4f46e5, #a855f7 50%, #06b6d4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    header p { margin: 16px auto 0; max-width: 34em; font-size: 17px; color: var(--text-2); text-wrap: balance; }
+
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-bottom: 72px; }
+    .card {
+      display: flex; flex-direction: column;
+      background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+      box-shadow: 0 1px 2px rgba(10, 10, 11, .04);
+      transition: transform .4s cubic-bezier(.2, .7, .2, 1), box-shadow .4s cubic-bezier(.2, .7, .2, 1);
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 2px 4px rgba(10, 10, 11, .04), 0 28px 56px -16px rgba(10, 10, 11, .2); }
+    .thumb { aspect-ratio: 1200 / 630; overflow: hidden; background: #eee; border-bottom: 1px solid var(--line); }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+    .card:hover .thumb img { transform: scale(1.05); }
+    .body { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 22px 24px 24px; }
+    .tag { align-self: flex-start; padding: 1px 10px; font-size: 12.5px; font-weight: 600; border-radius: 99px; }
+    .t1 { color: #4f46e5; background: rgba(79, 70, 229, .08); }
+    .t2 { color: #0891b2; background: rgba(6, 182, 212, .1); }
+    .t3 { color: #4f6f45; background: rgba(79, 111, 69, .1); }
+    h2 { margin: 0; font-size: 20px; letter-spacing: -.01em; }
+    .body p { margin: 0; font-size: 14.5px; color: var(--text-2); }
+    .meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 0; padding: 0; list-style: none; }
+    .meta li { padding: 0 9px; font-size: 12.5px; line-height: 24px; color: var(--text-2); background: var(--bg); border: 1px solid var(--line); border-radius: 99px; }
+    .go { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 10px; font-size: 15px; font-weight: 600; color: var(--primary); }
+    .go svg { width: 16px; height: 16px; transition: transform .3s; }
+    .card:hover .go svg { transform: translateX(4px); }
+
+    footer { padding: 28px 0 40px; border-top: 1px solid var(--line); font-size: 14px; color: var(--text-3); text-align: center; }
+
+    @media (max-width: 960px) { .grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+    @media (max-width: 640px) { header { padding: 72px 0 40px; } .grid { grid-template-columns: minmax(0, 1fr); } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <span class="pill"><i></i>点开即看 · 手机电脑都能访问</span>
+      <h1>网站定制 · <span>真实案例</span></h1>
+      <p>下面 3 个网站都是实际可用的成品效果，文案、配色、图片均可按你的需求修改。</p>
+    </div>
+  </header>
+
+  <main class="wrap grid">
+    <a class="card" href="demo-1-portfolio/">
+      <div class="thumb"><img src="demo-1-portfolio/og.png" alt="个人主页案例预览" width="1200" height="630"></div>
+      <div class="body">
+        <span class="tag t1">个人主页 / 简历站</span>
+        <h2>林小满 · 设计师个人主页</h2>
+        <p>适合求职、自由职业者打造个人品牌：作品集弹窗、经历时间线、深色模式、联系表单。</p>
+        <ul class="meta"><li>单页滚动</li><li>深色模式</li><li>作品弹窗</li></ul>
+        <span class="go">查看案例 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+    <a class="card" href="demo-2-landing/">
+      <div class="thumb"><img src="demo-2-landing/og.png" alt="企业落地页案例预览" width="1200" height="630"></div>
+      <div class="body">
+        <span class="tag t2">企业官网 / 落地页</span>
+        <h2>云舟 FlowSail · SaaS 产品官网</h2>
+        <p>适合公司、产品、门店做官网与推广页：功能展示、数据动画、价格表、常见问题。</p>
+        <ul class="meta"><li>产品界面展示</li><li>月付 / 年付切换</li><li>FAQ</li></ul>
+        <span class="go">查看案例 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+    <a class="card" href="demo-3-homework/">
+      <div class="thumb"><img src="demo-3-homework/og.png" alt="学生网页作业案例预览" width="1200" height="630"></div>
+      <div class="body">
+        <span class="tag t3">网页设计作业</span>
+        <h2>茶韵 · 中国茶文化（5 页）</h2>
+        <p>原生 HTML + CSS + JS，代码带中文注释：轮播图、灯箱图集、数据列表、表单验证。</p>
+        <ul class="meta"><li>5 个页面</li><li>无框架</li><li>中文注释</li></ul>
+        <span class="go">查看案例 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 拾页工作室 · 案例中的品牌与人物均为虚构，仅作效果演示</div>
+  </footer>
+</body>
+</html>

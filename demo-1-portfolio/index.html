@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>林小满 Echo Lin · 数字产品设计师</title>
+  <meta name="description" content="林小满（Echo Lin），杭州的数字产品设计师。专注 App、B 端产品与品牌视觉设计，3 年经验，完成 40+ 项目。">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- 分享卡片（微信 / 微博 / 社交平台预览）。部署后请把 og:image 改为完整的绝对地址，如 https://你的域名/og.png -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="林小满 Echo Lin · 数字产品设计师">
+  <meta property="og:description" content="把复杂的事情，设计得简单。查看我的作品集、经历与合作方式。">
+  <meta property="og:image" content="og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script>
+    // 在页面绘制前确定主题（读取上次的选择，否则跟随系统），避免深色模式闪白
+    (function () {
+      var d = document.documentElement, t;
+      d.classList.add('js');
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'dark' && t !== 'light') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      d.setAttribute('data-theme', t);
+      document.querySelector('meta[name="theme-color"]').content = t === 'dark' ? '#09090d' : '#fafafa';
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ============ 导航 ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="logo" aria-label="Echo Lin 首页">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>Echo Lin<span class="logo-dot">.</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#about">关于</a>
+        <a href="#skills">技能</a>
+        <a href="#works">作品</a>
+        <a href="#experience">经历</a>
+        <a href="#contact">联系</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="切换深色模式" title="切换深色 / 浅色模式">
+          <svg class="i i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="i i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#contact" class="btn btn-dark btn-sm nav-cta">联系合作</a>
+        <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 移动端菜单 -->
+    <div class="mobile-menu" id="mobileMenu">
+      <nav class="container" aria-label="移动端导航">
+        <a href="#about"><i>01</i>关于我</a>
+        <a href="#skills"><i>02</i>技能</a>
+        <a href="#works"><i>03</i>作品</a>
+        <a href="#experience"><i>04</i>经历</a>
+        <a href="#contact"><i>05</i>联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ 首屏 Hero ============ -->
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="grid-bg"></div>
+        <div class="glow g1"></div>
+        <div class="glow g2"></div>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="status"><span class="dot"></span>正在接受 2026 年 11 月起的新项目</p>
+          <h1 class="hero-title">
+            <span class="name-cn">林小满</span>
+            <span class="name-en">Echo Lin</span>
+          </h1>
+          <p class="hero-role">数字产品设计师<span class="sep">/</span>UI · 交互 · 品牌</p>
+          <p class="hero-desc">专注 App 与 B 端产品的体验设计，也写得一手前端代码。把复杂的业务，做成用起来很顺手的产品。</p>
+          <div class="hero-cta">
+            <a href="#works" class="btn btn-dark btn-lg">查看作品
+              <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-ghost btn-lg">联系我</a>
+          </div>
+          <div class="hero-clients">
+            <span>合作过</span>
+            <ul>
+              <li>云栖科技</li>
+              <li>小禾教育</li>
+              <li>山野咖啡</li>
+              <li>Nova Data</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 右侧视觉：仿 Figma 画布里的头像，替换 images/avatar.svg 即可换成真实照片 -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="frame">
+            <span class="frame-label">
+              <svg class="i" viewBox="0 0 24 24"><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></svg>Echo Lin · Portrait
+            </span>
+            <img src="images/avatar.svg" alt="" width="480" height="560">
+            <i class="h h1"></i><i class="h h2"></i><i class="h h3"></i><i class="h h4"></i>
+            <span class="frame-size">480 × 560</span>
+          </div>
+
+          <div class="float palette" style="--d:-10px">
+            <i style="background:#4f46e5"></i><i style="background:#a855f7"></i><i style="background:#f472b6"></i><i style="background:#fbbf24"></i>
+            <span>#4F46E5</span>
+          </div>
+
+          <div class="float comment" style="--d:8px">
+            <span class="av">陈</span>
+            <p><b>陈总</b>这版方案太棒了，就它！</p>
+          </div>
+
+          <div class="cursor c1">
+            <svg viewBox="0 0 20 20"><path d="M2 1.5 2 16.5 6.2 12.6 9 18.6 11.8 17.4 9.1 11.5 15 11.5Z"/></svg>
+            <span>Echo</span>
+          </div>
+          <div class="cursor c2">
+            <svg viewBox="0 0 20 20"><path d="M2 1.5 2 16.5 6.2 12.6 9 18.6 11.8 17.4 9.1 11.5 15 11.5Z"/></svg>
+            <span>客户 · 陈总</span>
+          </div>
+
+          <div class="badge-ring">
+            <svg viewBox="0 0 120 120">
+              <defs><path id="ringPath" d="M60 60 m-45 0 a45 45 0 1 1 90 0 a45 45 0 1 1 -90 0"/></defs>
+              <text><textPath href="#ringPath" textLength="280" lengthAdjust="spacing">DESIGN ✦ CODE ✦ BRAND ✦ </textPath></text>
+            </svg>
+            <span class="ring-core">
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 滚动字幕条 -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>产品设计 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+        <span>交互体验 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+        <span>设计系统 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+        <span>品牌视觉 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+        <span>前端开发 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+        <span>动效设计 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+        <span>产品设计 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+        <span>交互体验 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+        <span>设计系统 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+        <span>品牌视觉 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+        <span>前端开发 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+        <span>动效设计 <svg viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+      </div>
+    </div>
+
+    <!-- ============ 01 关于我 ============ -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="section-head reveal">
+            <span class="kicker"><i>01</i>关于我</span>
+            <h2>把复杂的事情，<br>设计得简单。</h2>
+          </div>
+          <div class="about-text reveal">
+            <p class="lead">你好，我是林小满，一名现居杭州的数字产品设计师。</p>
+            <p>毕业于中国美术学院视觉传达设计专业，曾在 SaaS 公司云栖科技负责数据产品线的体验设计，主导搭建了覆盖 5 条产品线的设计系统。2025 年起成为独立设计师，和创业团队、品牌主理人一起，把产品从 0 做到 1。</p>
+            <p>我相信好的设计不只是好看——它应该让人少想一步、少点一下。除了设计，我也写前端代码，能把方案亲手实现到像素级还原。</p>
+            <ul class="about-facts">
+              <li><svg class="i" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>浙江 · 杭州</li>
+              <li><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>通常 24 小时内回复</li>
+              <li><svg class="i" viewBox="0 0 24 24"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>中文 / English</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat reveal">
+            <b><span class="count" data-to="3">3</span><em>年+</em></b>
+            <span class="label">产品设计经验</span>
+            <span class="desc">从 SaaS 大厂到独立设计</span>
+          </div>
+          <div class="stat reveal">
+            <b><span class="count" data-to="40">40</span><em>+</em></b>
+            <span class="label">完成项目</span>
+            <span class="desc">App · 网站 · 小程序 · 品牌</span>
+          </div>
+          <div class="stat reveal">
+            <b><span class="count" data-to="20">20</span><em>+</em></b>
+            <span class="label">合作客户</span>
+            <span class="desc">超过 60% 的客户再次合作</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 技能 ============ -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker"><i>02</i>技能</span>
+          <h2>从概念到上线，<br>一个人就是一支小队。</h2>
+          <p class="section-sub">设计与开发两条腿走路：沟通损耗更少，交付更快，还原更准。</p>
+        </div>
+
+        <div class="skill-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon"><svg class="i" viewBox="0 0 24 24"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+            <h3>UI / 交互设计</h3>
+            <p>App、Web 与小程序的界面和交互设计，设计系统搭建与可用性测试。</p>
+            <div class="meter"><div class="meter-head"><span>熟练度</span><b>95%</b></div><div class="bar" style="--val:95%"><span></span></div></div>
+            <ul class="tags"><li>Figma</li><li>设计系统</li><li>原型动效</li><li>用户研究</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-icon"><svg class="i" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+            <h3>前端开发</h3>
+            <p>把设计稿亲手实现为响应式网站与 H5，关注性能与细节动效。</p>
+            <div class="meter"><div class="meter-head"><span>熟练度</span><b>85%</b></div><div class="bar" style="--val:85%"><span></span></div></div>
+            <ul class="tags"><li>HTML / CSS</li><li>Vue 3</li><li>React</li><li>TypeScript</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-icon"><svg class="i" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2z"/></svg></div>
+            <h3>品牌设计</h3>
+            <p>标志与视觉识别系统、插画、包装与社交媒体物料设计。</p>
+            <div class="meter"><div class="meter-head"><span>熟练度</span><b>80%</b></div><div class="bar" style="--val:80%"><span></span></div></div>
+            <ul class="tags"><li>Logo & VI</li><li>插画</li><li>包装</li><li>Illustrator</li></ul>
+          </article>
+        </div>
+
+        <div class="tools reveal">
+          <span class="tools-title">常用工具</span>
+          <ul>
+            <li>Figma</li><li>Sketch</li><li>Illustrator</li><li>Photoshop</li><li>After Effects</li><li>Principle</li><li>Blender</li><li>VS Code</li><li>Vite</li><li>Tailwind CSS</li><li>Notion</li><li>Midjourney</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 作品 ============
+         每个 <article class="work"> 是一个作品：
+         - 卡片：封面图 + 标题 + 分类
+         - <template> 里是弹窗详情，直接改文字即可 -->
+    <section class="section works" id="works">
+      <div class="container">
+        <div class="section-head row reveal">
+          <div>
+            <span class="kicker"><i>03</i>精选作品</span>
+            <h2>最近做的一些项目</h2>
+          </div>
+          <p class="section-sub">点击卡片，查看设计过程与上线成果。</p>
+        </div>
+
+        <div class="work-grid">
+          <!-- 作品 1 -->
+          <article class="work reveal" data-title="轻记 · 记账 App 重设计" data-kicker="移动应用 · 2025">
+            <div class="work-cover">
+              <img src="images/work-1.svg" alt="轻记记账 App 界面设计" width="800" height="600" loading="lazy">
+              <div class="work-overlay" aria-hidden="true">
+                <div>
+                  <p class="ov-title">轻记 · 记账 App 重设计</p>
+                  <ul class="tags tags-light"><li>App</li><li>UI 设计</li><li>用户研究</li></ul>
+                </div>
+                <span class="ov-btn"><svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              </div>
+            </div>
+            <div class="work-info">
+              <h3><button class="work-open" type="button" aria-haspopup="dialog">轻记 · 记账 App 重设计</button></h3>
+              <span>移动应用 · 2025</span>
+            </div>
+            <template>
+              <p class="md-lead">一款拥有 80 万用户的个人记账 App。我负责 2.0 版本的整体体验重设计，目标只有一个：让记账不再麻烦。</p>
+              <dl class="md-meta">
+                <div><dt>类型</dt><dd>移动应用</dd></div>
+                <div><dt>我的角色</dt><dd>产品 & UI 设计</dd></div>
+                <div><dt>周期</dt><dd>2025.09 · 6 周</dd></div>
+                <div><dt>平台</dt><dd>iOS · Android</dd></div>
+              </dl>
+              <h4>项目背景</h4>
+              <p>用户访谈中，「太麻烦」是放弃记账的头号原因：旧版记一笔账平均需要 6 步，新用户 7 日留存只有 21%。</p>
+              <h4>我做了什么</h4>
+              <ul>
+                <li>访谈 12 位用户，提炼出「记得快、看得懂、坚持住」三个核心诉求</li>
+                <li>重做记账主流程：金额键盘常驻首页，智能识别分类，3 步记完一笔</li>
+                <li>设计周报 / 月报可视化与「智能提示」，让数据真正对生活有用</li>
+                <li>输出 60+ 组件的移动端设计规范，开发交付零返工</li>
+              </ul>
+              <div class="md-results">
+                <div><b>6 → 3</b><span>记一笔账的步骤</span></div>
+                <div><b>21% → 34%</b><span>新用户 7 日留存</span></div>
+                <div><b>4.8 分</b><span>应用商店评分（原 4.2）</span></div>
+              </div>
+            </template>
+          </article>
+
+          <!-- 作品 2 -->
+          <article class="work reveal" data-title="Nova · 零售数据分析平台" data-kicker="B 端 SaaS · 2024">
+            <div class="work-cover">
+              <img src="images/work-2.svg" alt="Nova 数据分析平台界面" width="800" height="600" loading="lazy">
+              <div class="work-overlay" aria-hidden="true">
+                <div>
+                  <p class="ov-title">Nova · 零售数据分析平台</p>
+                  <ul class="tags tags-light"><li>B 端</li><li>数据可视化</li><li>Web</li></ul>
+                </div>
+                <span class="ov-btn"><svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              </div>
+            </div>
+            <div class="work-info">
+              <h3><button class="work-open" type="button" aria-haspopup="dialog">Nova · 零售数据分析平台</button></h3>
+              <span>B 端 SaaS · 2024</span>
+            </div>
+            <template>
+              <p class="md-lead">为连锁零售企业打造的数据分析平台，让不懂技术的门店经理也能看懂数据、用好数据。</p>
+              <dl class="md-meta">
+                <div><dt>类型</dt><dd>B 端 SaaS</dd></div>
+                <div><dt>我的角色</dt><dd>主设计师</dd></div>
+                <div><dt>周期</dt><dd>2024.03 · 4 个月</dd></div>
+                <div><dt>平台</dt><dd>Web 桌面端</dd></div>
+              </dl>
+              <h4>项目背景</h4>
+              <p>客户原有报表依赖 IT 部门手工导出，一份周报要等 2 天；门店经理面对密密麻麻的表格，不知道该看哪里。</p>
+              <h4>我做了什么</h4>
+              <ul>
+                <li>以「先结论、后细节」重构信息层级，打开首页就能看到异常预警</li>
+                <li>设计可拖拽的看板编辑器，支持 12 种图表组件自由组合</li>
+                <li>制定数据可视化规范，统一配色、图表选择与数字格式</li>
+                <li>与研发共建组件库，保证 300+ 门店终端显示一致</li>
+              </ul>
+              <div class="md-results">
+                <div><b>-70%</b><span>报表制作时间</span></div>
+                <div><b>92%</b><span>门店经理满意度</span></div>
+                <div><b>300+</b><span>门店上线使用</span></div>
+              </div>
+            </template>
+          </article>
+
+          <!-- 作品 3 -->
+          <article class="work reveal" data-title="山野咖啡 · 品牌视觉升级" data-kicker="品牌设计 · 2025">
+            <div class="work-cover">
+              <img src="images/work-3.svg" alt="山野咖啡品牌标志与外带杯设计" width="800" height="600" loading="lazy">
+              <div class="work-overlay" aria-hidden="true">
+                <div>
+                  <p class="ov-title">山野咖啡 · 品牌视觉升级</p>
+                  <ul class="tags tags-light"><li>Logo</li><li>VI 系统</li><li>包装</li></ul>
+                </div>
+                <span class="ov-btn"><svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              </div>
+            </div>
+            <div class="work-info">
+              <h3><button class="work-open" type="button" aria-haspopup="dialog">山野咖啡 · 品牌视觉升级</button></h3>
+              <span>品牌设计 · 2025</span>
+            </div>
+            <template>
+              <p class="md-lead">一家开在莫干山脚下的独立咖啡馆。主理人希望品牌既有「山野感」，又不失城市里的精致。</p>
+              <dl class="md-meta">
+                <div><dt>类型</dt><dd>品牌设计</dd></div>
+                <div><dt>我的角色</dt><dd>品牌设计师</dd></div>
+                <div><dt>周期</dt><dd>2025.05 · 3 周</dd></div>
+                <div><dt>应用</dt><dd>门店 · 包装 · 社媒</dd></div>
+              </dl>
+              <h4>项目背景</h4>
+              <p>原标志是随手做的文字 Logo，在外带杯、招牌和小红书上辨识度都很低，难以支撑即将开业的第二家门店。</p>
+              <h4>我做了什么</h4>
+              <ul>
+                <li>提炼「山与日出」作为核心图形，一笔勾勒莫干山的轮廓</li>
+                <li>定制大地棕 + 晨光橙的品牌色，统一门店空间与包装</li>
+                <li>设计外带杯、杯套、菜单、会员卡、帆布袋等 20+ 物料</li>
+                <li>输出 48 页 VI 规范手册，门店员工也能正确使用</li>
+              </ul>
+              <div class="md-results">
+                <div><b>+45%</b><span>新店首月营业额</span></div>
+                <div><b>600+</b><span>小红书自发打卡笔记</span></div>
+                <div><b>48 页</b><span>VI 规范手册</span></div>
+              </div>
+            </template>
+          </article>
+
+          <!-- 作品 4 -->
+          <article class="work reveal" data-title="Pulse · 健身打卡小程序" data-kicker="微信小程序 · 2025">
+            <div class="work-cover">
+              <img src="images/work-4.svg" alt="Pulse 健身小程序界面" width="800" height="600" loading="lazy">
+              <div class="work-overlay" aria-hidden="true">
+                <div>
+                  <p class="ov-title">Pulse · 健身打卡小程序</p>
+                  <ul class="tags tags-light"><li>小程序</li><li>游戏化</li><li>动效</li></ul>
+                </div>
+                <span class="ov-btn"><svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              </div>
+            </div>
+            <div class="work-info">
+              <h3><button class="work-open" type="button" aria-haspopup="dialog">Pulse · 健身打卡小程序</button></h3>
+              <span>微信小程序 · 2025</span>
+            </div>
+            <template>
+              <p class="md-lead">面向健身新手的打卡小程序，用游戏化的「能量环」和连续打卡机制，帮用户把运动坚持下去。</p>
+              <dl class="md-meta">
+                <div><dt>类型</dt><dd>微信小程序</dd></div>
+                <div><dt>我的角色</dt><dd>UI & 动效设计</dd></div>
+                <div><dt>周期</dt><dd>2025.11 · 5 周</dd></div>
+                <div><dt>平台</dt><dd>微信</dd></div>
+              </dl>
+              <h4>项目背景</h4>
+              <p>健身新手最大的难题不是不会练，而是坚持不下去。团队希望通过设计提升用户的长期活跃。</p>
+              <h4>我做了什么</h4>
+              <ul>
+                <li>设计三色「能量环」：步数、时长、训练组数一目了然</li>
+                <li>加入连续打卡、勋章与好友 PK，强化社交激励</li>
+                <li>制作 20+ 段微交互动效，打造完成训练时的「庆祝时刻」</li>
+                <li>深色界面 + 高饱和点缀色，在健身房强光下依然清晰</li>
+              </ul>
+              <div class="md-results">
+                <div><b>41%</b><span>30 日留存</span></div>
+                <div><b>1.2 万</b><span>日均打卡次数</span></div>
+                <div><b>15 万</b><span>上线 3 个月用户</span></div>
+              </div>
+            </template>
+          </article>
+
+          <!-- 作品 5 -->
+          <article class="work reveal" data-title="知行学堂 · 在线教育官网" data-kicker="网站设计 + 开发 · 2026">
+            <div class="work-cover">
+              <img src="images/work-5.svg" alt="知行学堂官网设计" width="800" height="600" loading="lazy">
+              <div class="work-overlay" aria-hidden="true">
+                <div>
+                  <p class="ov-title">知行学堂 · 在线教育官网</p>
+                  <ul class="tags tags-light"><li>官网</li><li>响应式</li><li>Vue 3</li></ul>
+                </div>
+                <span class="ov-btn"><svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              </div>
+            </div>
+            <div class="work-info">
+              <h3><button class="work-open" type="button" aria-haspopup="dialog">知行学堂 · 在线教育官网</button></h3>
+              <span>网站 · 2026</span>
+            </div>
+            <template>
+              <p class="md-lead">为一家职业技能培训机构重做官网——从设计到前端开发，由我一人完成。</p>
+              <dl class="md-meta">
+                <div><dt>类型</dt><dd>网站设计 + 开发</dd></div>
+                <div><dt>我的角色</dt><dd>设计 & 前端</dd></div>
+                <div><dt>周期</dt><dd>2026.02 · 4 周</dd></div>
+                <div><dt>平台</dt><dd>响应式 Web</dd></div>
+              </dl>
+              <h4>项目背景</h4>
+              <p>旧官网信息杂乱、手机上几乎无法浏览，大量广告流量进站后直接流失，咨询转化率只有 2.1%。</p>
+              <h4>我做了什么</h4>
+              <ul>
+                <li>重新规划信息架构：课程、师资、学员故事三条主线</li>
+                <li>首屏突出「免费试听」，把咨询路径从 4 步缩短到 1 步</li>
+                <li>使用 Vue 3 + Vite 开发，图片全量 WebP，首屏 1.2 秒内加载</li>
+                <li>搭配简易后台，客户无需懂代码也能更新课程与文章</li>
+              </ul>
+              <div class="md-results">
+                <div><b>2.1% → 4.6%</b><span>咨询转化率</span></div>
+                <div><b>1.2s</b><span>首屏加载时间</span></div>
+                <div><b>98 分</b><span>Lighthouse 性能评分</span></div>
+              </div>
+            </template>
+          </article>
+
+          <!-- 作品 6 -->
+          <article class="work reveal" data-title="Mira · 企业级设计系统" data-kicker="设计系统 · 2024">
+            <div class="work-cover">
+              <img src="images/work-6.svg" alt="Mira 设计系统组件展示" width="800" height="600" loading="lazy">
+              <div class="work-overlay" aria-hidden="true">
+                <div>
+                  <p class="ov-title">Mira · 企业级设计系统</p>
+                  <ul class="tags tags-light"><li>Design Tokens</li><li>组件库</li></ul>
+                </div>
+                <span class="ov-btn"><svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              </div>
+            </div>
+            <div class="work-info">
+              <h3><button class="work-open" type="button" aria-haspopup="dialog">Mira · 企业级设计系统</button></h3>
+              <span>设计系统 · 2024</span>
+            </div>
+            <template>
+              <p class="md-lead">在云栖科技期间主导搭建的设计系统，统一了 5 条产品线的视觉语言与交互规范。</p>
+              <dl class="md-meta">
+                <div><dt>类型</dt><dd>设计系统</dd></div>
+                <div><dt>我的角色</dt><dd>设计系统负责人</dd></div>
+                <div><dt>周期</dt><dd>2023.10 – 2024.06</dd></div>
+                <div><dt>交付</dt><dd>Figma + Vue 组件库</dd></div>
+              </dl>
+              <h4>项目背景</h4>
+              <p>公司 5 条产品线由不同团队设计，同一个按钮竟有 11 种样式，设计与开发都在大量重复劳动。</p>
+              <h4>我做了什么</h4>
+              <ul>
+                <li>盘点 400+ 个界面，抽象出 120+ 个基础与业务组件</li>
+                <li>建立色彩、字体、间距等 Design Tokens，一键支持深色模式</li>
+                <li>编写设计规范与使用示例，组织 8 场内部培训</li>
+                <li>与前端团队共建 Vue 组件库，设计稿与代码一一对应</li>
+              </ul>
+              <div class="md-results">
+                <div><b>120+</b><span>组件</span></div>
+                <div><b>+50%</b><span>设计交付效率</span></div>
+                <div><b>5 条</b><span>产品线全面接入</span></div>
+              </div>
+            </template>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 经历 ============ -->
+    <section class="section experience" id="experience">
+      <div class="container exp-grid">
+        <div class="section-head exp-head reveal">
+          <span class="kicker"><i>04</i>经历</span>
+          <h2>一路走来</h2>
+          <p class="section-sub">从美院到 SaaS 公司，再到独立设计师——每一段经历都让我离「好用的产品」更近一点。</p>
+          <a class="text-link" href="#contact">索取完整简历
+            <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <ol class="timeline">
+          <li class="tl-item current reveal">
+            <time class="tl-time">2025.03 — 至今</time>
+            <span class="tl-dot" aria-hidden="true"></span>
+            <div class="tl-card">
+              <h3>独立产品设计师</h3>
+              <p class="tl-org">自由职业 · 远程协作 <span class="tl-badge">进行中</span></p>
+              <p>为 20+ 创业团队与品牌提供 App、网站与品牌设计，并负责部分项目的前端实现。</p>
+              <ul class="tags"><li>产品设计</li><li>品牌</li><li>前端开发</li></ul>
+            </div>
+          </li>
+          <li class="tl-item reveal">
+            <time class="tl-time">2023.07 — 2025.02</time>
+            <span class="tl-dot" aria-hidden="true"></span>
+            <div class="tl-card">
+              <h3>UI / UX 设计师</h3>
+              <p class="tl-org">云栖科技 · B 轮 SaaS 公司</p>
+              <p>负责数据中台产品线的体验设计；主导搭建 Mira 设计系统，组件 120+，设计交付效率提升 50%。获 2024 年度优秀员工。</p>
+              <ul class="tags"><li>B 端产品</li><li>设计系统</li><li>数据可视化</li></ul>
+            </div>
+          </li>
+          <li class="tl-item reveal">
+            <time class="tl-time">2022.07 — 2022.12</time>
+            <span class="tl-dot" aria-hidden="true"></span>
+            <div class="tl-card">
+              <h3>UI 设计实习生</h3>
+              <p class="tl-org">小禾教育</p>
+              <p>参与学习 App 3.0 改版，独立负责课程详情与学习报告模块，上线后课程购买转化提升 18%。</p>
+              <ul class="tags"><li>移动端</li><li>在线教育</li></ul>
+            </div>
+          </li>
+          <li class="tl-item reveal">
+            <time class="tl-time">2019.09 — 2023.06</time>
+            <span class="tl-dot" aria-hidden="true"></span>
+            <div class="tl-card">
+              <h3>视觉传达设计 · 本科</h3>
+              <p class="tl-org">中国美术学院</p>
+              <p>毕业设计《慢下来——城市独居青年的情绪设计》获校级优秀毕业设计；连续三年获专业奖学金。</p>
+              <ul class="tags"><li>平面设计</li><li>交互设计</li></ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 05 联系 ============ -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-info">
+            <span class="kicker"><i>05</i>联系</span>
+            <h2>有个想法？<br>一起把它做出来。</h2>
+            <p>无论是一个完整的产品，还是一次品牌升级，都欢迎来聊聊。我通常会在 24 小时内回复。</p>
+            <a class="contact-mail" href="mailto:hello@echolin.design">hello@echolin.design
+              <svg class="i" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+
+            <div class="socials">
+              <a class="social" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+                <svg class="i i-fill" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg>
+              </a>
+              <a class="social" href="https://dribbble.com/" target="_blank" rel="noopener" aria-label="Dribbble" title="Dribbble">
+                <svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32M8.56 2.75c4.37 6 6 9.42 8 17.72"/></svg>
+              </a>
+              <a class="social" href="mailto:hello@echolin.design" aria-label="发送邮件" title="邮箱">
+                <svg class="i" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              </a>
+              <div class="wechat">
+                <button class="social" id="wechatBtn" type="button" aria-label="微信" title="微信" aria-expanded="false" aria-controls="wechatPop">
+                  <svg class="i i-fill" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M9 3.5C4.86 3.5 1.5 6.3 1.5 9.75c0 1.95 1.08 3.7 2.78 4.84l-.7 2.11 2.47-1.24c.9.26 1.88.4 2.9.4h.47a5.6 5.6 0 0 1-.22-1.55c0-3.36 3.23-6.08 7.22-6.08h.4C16.2 5.4 12.94 3.5 9 3.5Zm-2.75 3.6a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9Zm5.5 0a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9ZM16.4 9.6c-3.36 0-6.08 2.22-6.08 4.96s2.72 4.96 6.08 4.96c.7 0 1.37-.1 2-.28l1.95 1-.55-1.68c1.39-.9 2.27-2.3 2.27-3.9 0-2.74-2.72-4.96-6.08-4.96Zm-2.05 2.85a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4.1 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z"/></svg>
+                </button>
+                <div class="wechat-pop" id="wechatPop" role="dialog" aria-label="微信二维码">
+                  <!-- 二维码为占位图：替换 images/wechat-qr.svg 为你的真实微信二维码图片即可 -->
+                  <img class="qr" src="images/wechat-qr.svg" alt="微信二维码" width="132" height="132">
+                  <p>扫码添加微信<br><b>EchoLin_design</b></p>
+                  <button class="copy-btn" id="copyWechat" type="button">
+                    <svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制微信号
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <ol class="process">
+              <li><b>01</b><div><h3>沟通需求</h3><p>30 分钟线上沟通，了解目标与预算</p></div></li>
+              <li><b>02</b><div><h3>方案与报价</h3><p>2 个工作日内给出方案、排期与报价</p></div></li>
+              <li><b>03</b><div><h3>设计交付</h3><p>阶段性确认，交付源文件与设计规范</p></div></li>
+            </ol>
+          </div>
+
+          <!-- 联系表单：纯前端演示，提交后显示成功提示，不会真实发送 -->
+          <div class="form-wrap">
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="field-row">
+                <div class="field">
+                  <label for="f-name">怎么称呼你</label>
+                  <input id="f-name" name="name" type="text" placeholder="例如：王先生" autocomplete="name">
+                  <p class="err" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="f-email">邮箱</label>
+                  <input id="f-email" name="email" type="email" placeholder="you@example.com" autocomplete="email">
+                  <p class="err" aria-live="polite"></p>
+                </div>
+              </div>
+              <fieldset class="field">
+                <legend>项目类型</legend>
+                <div class="chips">
+                  <label class="chip"><input type="radio" name="type" value="网站设计" checked><span>网站设计</span></label>
+                  <label class="chip"><input type="radio" name="type" value="App / 小程序"><span>App / 小程序</span></label>
+                  <label class="chip"><input type="radio" name="type" value="品牌设计"><span>品牌设计</span></label>
+                  <label class="chip"><input type="radio" name="type" value="其他"><span>其他</span></label>
+                </div>
+              </fieldset>
+              <div class="field">
+                <label for="f-budget">预算范围</label>
+                <select id="f-budget" name="budget">
+                  <option>¥5,000 以下</option>
+                  <option selected>¥5,000 – 20,000</option>
+                  <option>¥20,000 – 50,000</option>
+                  <option>¥50,000 以上</option>
+                  <option>还没想好</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-msg">项目简介</label>
+                <textarea id="f-msg" name="message" rows="4" placeholder="简单介绍一下你的项目、目标和时间计划……"></textarea>
+                <p class="err" aria-live="polite"></p>
+              </div>
+              <button class="btn btn-dark btn-lg btn-block" type="submit">
+                <span class="btn-label">发送消息</span>
+                <svg class="i" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              </button>
+            </form>
+
+            <div class="form-success" id="formSuccess" hidden>
+              <svg class="check" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="m15 27 7 7 15-15"/></svg>
+              <h3>消息已发送！</h3>
+              <p>谢谢你，<b id="successName">朋友</b>。我会在 24 小时内回复到 <b id="successEmail"></b>。</p>
+              <p class="demo-note">（演示站点：消息不会真实发送）</p>
+              <button class="btn btn-ghost" id="formReset" type="button">再写一条</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 林小满 Echo Lin · 保留所有权利</p>
+      <p class="credit">由 拾页工作室 设计开发</p>
+      <a href="#top" class="to-top">回到顶部
+        <svg class="i" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- 作品详情弹窗 -->
+  <dialog class="modal" id="workModal" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" type="button" aria-label="关闭">
+        <svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-scroll">
+        <div class="modal-side">
+          <div class="modal-cover" id="modalCover"></div>
+          <div class="modal-facts" id="modalFacts"></div>
+        </div>
+        <div class="modal-main">
+          <div class="modal-head" id="modalHead">
+            <p class="modal-kicker" id="modalKicker"></p>
+            <h3 id="modalTitle"></h3>
+          </div>
+          <div class="modal-content" id="modalContent"></div>
+          <div class="modal-nav">
+            <button class="btn btn-ghost btn-sm" id="modalPrev" type="button">
+              <svg class="i" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>上一个
+            </button>
+            <span class="modal-count" id="modalCount">1 / 6</span>
+            <button class="btn btn-ghost btn-sm" id="modalNext" type="button">下一个
+              <svg class="i" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <!-- 作品封面 5：知行学堂 · 在线教育官网 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5f3ff"/><stop offset="1" stop-color="#ddd6fe"/></linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#6d28d9"/></linearGradient>
+    <clipPath id="win"><rect width="640" height="450" rx="18"/></clipPath>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#4c1d95" flood-opacity=".25"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="720" cy="70" r="150" fill="#c4b5fd" opacity=".55"/>
+  <circle cx="70" cy="560" r="170" fill="#fde68a" opacity=".6"/>
+
+  <g transform="translate(80 84)" filter="url(#sh)">
+    <g clip-path="url(#win)">
+      <rect width="640" height="450" fill="#fff"/>
+      <rect width="640" height="30" fill="#f4f4f5"/>
+    </g>
+    <circle cx="18" cy="15" r="5" fill="#f87171"/><circle cx="34" cy="15" r="5" fill="#fbbf24"/><circle cx="50" cy="15" r="5" fill="#34d399"/>
+    <rect x="200" y="8" width="240" height="14" rx="7" fill="#e4e4e7"/>
+    <!-- 导航 -->
+    <rect x="28" y="50" width="22" height="22" rx="6" fill="#7c3aed"/>
+    <text x="58" y="66" font-size="14" font-weight="700" fill="#1e1b4b">知行学堂</text>
+    <g fill="#a1a1aa" font-size="11"><text x="300" y="65">课程</text><text x="344" y="65">师资</text><text x="388" y="65">学员故事</text><text x="452" y="65">关于</text></g>
+    <rect x="530" y="50" width="84" height="26" rx="13" fill="#facc15"/>
+    <text x="572" y="67" font-size="11" font-weight="700" fill="#1e1b4b" text-anchor="middle">免费试听</text>
+    <!-- Hero -->
+    <rect x="28" y="96" width="74" height="22" rx="11" fill="#ede9fe"/>
+    <text x="65" y="111" font-size="10" fill="#6d28d9" text-anchor="middle">2026 春季班</text>
+    <text x="28" y="152" font-size="30" font-weight="800" fill="#1e1b4b">终身学习，</text>
+    <text x="28" y="190" font-size="30" font-weight="800" fill="#1e1b4b">从这里<tspan fill="#7c3aed">开始</tspan></text>
+    <rect x="28" y="208" width="230" height="8" rx="4" fill="#e4e4e7"/>
+    <rect x="28" y="224" width="180" height="8" rx="4" fill="#e4e4e7"/>
+    <rect x="28" y="248" width="110" height="36" rx="18" fill="#7c3aed"/>
+    <text x="83" y="271" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">浏览课程 →</text>
+    <rect x="148" y="248" width="96" height="36" rx="18" fill="none" stroke="#d4d4d8"/>
+    <text x="196" y="271" font-size="12" fill="#3f3f46" text-anchor="middle">观看介绍</text>
+    <!-- 插画 -->
+    <circle cx="480" cy="182" r="96" fill="url(#hero)"/>
+    <path d="M420 200 Q450 184 480 200 Q510 184 540 200 L540 252 Q510 236 480 252 Q450 236 420 252 Z" fill="#fff"/>
+    <path d="M480 200 V252" stroke="#c4b5fd" stroke-width="2"/>
+    <path d="M432 214 h34 M432 226 h30 M494 214 h34 M494 226 h28" stroke="#ddd6fe" stroke-width="3" stroke-linecap="round"/>
+    <path d="M556 110 l5 13 13 5 -13 5 -5 13 -5 -13 -13 -5 13 -5 z" fill="#facc15"/>
+    <circle cx="398" cy="118" r="8" fill="#facc15"/>
+    <rect x="512" y="120" width="70" height="26" rx="13" fill="#fff"/>
+    <text x="547" y="137" font-size="10" fill="#6d28d9" text-anchor="middle" font-weight="700">★ 4.9 分</text>
+    <!-- 课程卡片 -->
+    <g font-size="11">
+      <rect x="28" y="312" width="184" height="118" rx="14" fill="#fff" stroke="#ececf1"/>
+      <rect x="28" y="312" width="184" height="58" rx="14" fill="#ede9fe"/><rect x="28" y="356" width="184" height="14" fill="#ede9fe"/>
+      <text x="44" y="347" font-size="13" font-weight="700" fill="#5b21b6">UI 设计入门</text>
+      <rect x="44" y="386" width="120" height="7" rx="3.5" fill="#e4e4e7"/><text x="44" y="416" font-weight="700" fill="#1e1b4b">¥399</text><text x="196" y="416" fill="#a1a1aa" text-anchor="end">1.2k 人在学</text>
+
+      <rect x="228" y="312" width="184" height="118" rx="14" fill="#fff" stroke="#ececf1"/>
+      <rect x="228" y="312" width="184" height="58" rx="14" fill="#fef9c3"/><rect x="228" y="356" width="184" height="14" fill="#fef9c3"/>
+      <text x="244" y="347" font-size="13" font-weight="700" fill="#854d0e">Python 数据分析</text>
+      <rect x="244" y="386" width="110" height="7" rx="3.5" fill="#e4e4e7"/><text x="244" y="416" font-weight="700" fill="#1e1b4b">¥599</text><text x="396" y="416" fill="#a1a1aa" text-anchor="end">860 人在学</text>
+
+      <rect x="428" y="312" width="184" height="118" rx="14" fill="#fff" stroke="#ececf1"/>
+      <rect x="428" y="312" width="184" height="58" rx="14" fill="#fce7f3"/><rect x="428" y="356" width="184" height="14" fill="#fce7f3"/>
+      <text x="444" y="347" font-size="13" font-weight="700" fill="#9d174d">新媒体运营</text>
+      <rect x="444" y="386" width="128" height="7" rx="3.5" fill="#e4e4e7"/><text x="444" y="416" font-weight="700" fill="#1e1b4b">¥299</text><text x="596" y="416" fill="#a1a1aa" text-anchor="end">2.3k 人在学</text>
+    </g>
+  </g>
+</svg>

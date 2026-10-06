@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <!-- 作品封面 3：山野咖啡 · 品牌视觉 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6ede2"/><stop offset="1" stop-color="#ead9c6"/></linearGradient>
+    <linearGradient id="cup" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset=".7" stop-color="#fbf6f0"/><stop offset="1" stop-color="#e9ddd0"/></linearGradient>
+    <filter id="sh" x="-30%" y="-20%" width="160%" height="150%"><feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#6b3f26" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="660" cy="600" r="260" fill="#e08e45" opacity=".12"/>
+
+  <!-- 主标志 -->
+  <g transform="translate(250 290)" filter="url(#sh)">
+    <circle r="168" fill="#6b3f26"/>
+    <circle r="150" fill="none" stroke="#f6ede2" stroke-opacity=".35" stroke-width="1.5"/>
+    <circle cx="0" cy="-36" r="38" fill="#f2a65a"/>
+    <path d="M-104 30 L-42 -46 L-6 -4 L36 -62 L104 30 Z" fill="#f6ede2"/>
+    <path d="M-42 -46 L-26 -26 L-36 -16 Z M36 -62 L52 -40 L40 -34 Z" fill="#6b3f26" opacity=".25"/>
+    <path d="M-120 30 H120" stroke="#f6ede2" stroke-width="2"/>
+    <text y="80" font-size="32" font-weight="700" fill="#f6ede2" text-anchor="middle" letter-spacing="12">山野咖啡</text>
+    <text y="108" font-size="11" fill="#f6ede2" text-anchor="middle" letter-spacing="5" opacity=".75">SHANYE COFFEE · 2025</text>
+  </g>
+
+  <!-- 外带杯 -->
+  <g transform="translate(500 150)" filter="url(#sh)">
+    <path d="M14 46 L186 46 L168 356 Q166 380 142 380 L58 380 Q34 380 32 356 Z" fill="url(#cup)"/>
+    <rect x="0" y="22" width="200" height="30" rx="12" fill="#3b2418"/>
+    <rect x="22" y="6" width="156" height="22" rx="10" fill="#4a2e1f"/>
+    <path d="M22 150 L178 150 L172 262 L28 262 Z" fill="#6b3f26"/>
+    <circle cx="100" cy="190" r="14" fill="#f2a65a"/>
+    <path d="M62 236 L86 204 L100 220 L116 198 L140 236 Z" fill="#f6ede2"/>
+    <text x="100" y="300" font-size="11" fill="#6b3f26" text-anchor="middle" letter-spacing="4">MOGAN MOUNTAIN</text>
+  </g>
+  <path d="M570 120 q-12 -20 0 -40 t0 -40 M600 128 q-12 -20 0 -40 t0 -40 M630 120 q-12 -20 0 -40 t0 -40" fill="none" stroke="#6b3f26" stroke-opacity=".25" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- 色板 -->
+  <g transform="translate(64 532)" font-size="10" fill="#6b3f26">
+    <rect width="34" height="34" rx="9" fill="#6b3f26"/><rect x="44" width="34" height="34" rx="9" fill="#f2a65a"/><rect x="88" width="34" height="34" rx="9" fill="#f6ede2" stroke="#d6c3ae"/><rect x="132" width="34" height="34" rx="9" fill="#2b1d14"/>
+  </g>
+  <text x="64" y="72" font-size="13" fill="#6b3f26" letter-spacing="3" opacity=".8">BRAND IDENTITY</text>
+</svg>

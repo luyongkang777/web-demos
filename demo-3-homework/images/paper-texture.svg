@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <!-- 宣纸纹理：用 feTurbulence（分形噪声）生成细小的纸纤维斑点，作为网页背景平铺 -->
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0.45  0 0 0 0 0.36  0 0 0 0 0.25  0 0 0 0.09 0"/>
+  </filter>
+  <rect width="240" height="240" filter="url(#noise)"/>
+</svg>

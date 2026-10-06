@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>名茶列表 | 茶韵 · 中国茶文化</title>
+  <meta name="description" content="收录西湖龙井、碧螺春、铁观音、大红袍、祁门红茶、普洱等十五种中国名茶的茶类、产地、发酵程度、风味特点与建议冲泡水温。">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- 分享卡片（部署后 og:image 改为绝对地址） -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="名茶列表 | 茶韵 · 中国茶文化">
+  <meta property="og:description" content="十五种中国名茶的产地、风味与冲泡建议。">
+  <meta property="og:image" content="og.png">
+  <meta name="theme-color" content="#f6f1e7">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 给 <html> 加上 js 类，滚动渐入动画才会生效（见 style.css 第 16 部分）。
+       保险措施：如果 2 秒后 main.js 还没加载成功，就去掉 js 类，保证内容一定能显示出来 -->
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () {
+      if (!window.mainScriptLoaded) {
+        document.documentElement.classList.remove('js');
+      }
+    }, 2000);
+  </script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- ==================== 顶部导航栏 ==================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="茶韵 · 返回首页">
+        <span class="logo-seal">茶</span>
+        <span class="logo-text">茶韵<small>中国茶文化</small></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        <ul class="nav-list">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html">茶史渊源</a></li>
+          <li><a href="gallery.html">茶韵图集</a></li>
+          <!-- 当前页面是"名茶列表" -->
+          <li><a href="list.html" class="active" aria-current="page">名茶列表</a></li>
+          <li><a href="contact.html">留言板</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================== 页面横幅 ==================== -->
+    <section class="page-banner banner-list">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="index.html">首页</a><span>/</span>名茶列表
+        </nav>
+        <h1>名茶列表</h1>
+        <p>收录十五种中国代表性名茶的产地、发酵程度与冲泡建议。可以按茶类筛选，也可以直接搜索茶名、产地或风味。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- ==================== 搜索框 + 茶类筛选 ==================== -->
+        <div class="list-toolbar">
+          <!-- 搜索框（左边的放大镜是 svg 图标） -->
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input type="search" id="tea-search" placeholder="搜索茶名、产地或风味" aria-label="搜索名茶">
+          </div>
+
+          <!-- 茶类按钮：data-type 的值要和表格每一行的 data-type 一致 -->
+          <div class="filter-bar" id="tea-filters" role="group" aria-label="按茶类筛选">
+            <button class="filter-btn active" type="button" data-type="all" aria-pressed="true">全部</button>
+            <button class="filter-btn" type="button" data-type="绿茶" aria-pressed="false">绿茶</button>
+            <button class="filter-btn" type="button" data-type="白茶" aria-pressed="false">白茶</button>
+            <button class="filter-btn" type="button" data-type="黄茶" aria-pressed="false">黄茶</button>
+            <button class="filter-btn" type="button" data-type="青茶" aria-pressed="false">青茶</button>
+            <button class="filter-btn" type="button" data-type="红茶" aria-pressed="false">红茶</button>
+            <button class="filter-btn" type="button" data-type="黑茶" aria-pressed="false">黑茶</button>
+          </div>
+
+          <p class="list-count">共 <strong id="tea-count">15</strong> 种</p>
+        </div>
+
+        <!-- ==================== 名茶数据表格 ==================== -->
+        <!--
+          每一行 <tr> 是一种茶，data-type 记录它属于哪个茶类（用于筛选）；
+          每个 <td> 的 data-label 是这一列的名字，手机上表格变成卡片时会显示在左边。
+          新增一种茶：复制一整行 <tr>…</tr>，修改里面的文字即可。
+        -->
+        <div class="table-wrap">
+          <table class="tea-table" id="tea-table">
+            <caption>中国名茶一览表</caption>
+            <thead>
+              <tr>
+                <th scope="col">名称</th>
+                <th scope="col">茶类</th>
+                <th scope="col">产地</th>
+                <th scope="col">发酵程度</th>
+                <th scope="col">风味特点</th>
+                <th scope="col">建议水温</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-type="绿茶">
+                <td class="tea-name" data-label="名称">西湖龙井</td>
+                <td data-label="茶类"><span class="badge green">绿茶</span></td>
+                <td data-label="产地">浙江杭州</td>
+                <td data-label="发酵程度">不发酵</td>
+                <td class="tea-flavor" data-label="风味特点">扁平光滑，豆香清高，滋味鲜爽甘醇</td>
+                <td class="tea-temp" data-label="建议水温">80–85℃</td>
+              </tr>
+              <tr data-type="绿茶">
+                <td class="tea-name" data-label="名称">洞庭碧螺春</td>
+                <td data-label="茶类"><span class="badge green">绿茶</span></td>
+                <td data-label="产地">江苏苏州</td>
+                <td data-label="发酵程度">不发酵</td>
+                <td class="tea-flavor" data-label="风味特点">卷曲如螺，白毫显露，花果香浓郁</td>
+                <td class="tea-temp" data-label="建议水温">75–80℃</td>
+              </tr>
+              <tr data-type="绿茶">
+                <td class="tea-name" data-label="名称">黄山毛峰</td>
+                <td data-label="茶类"><span class="badge green">绿茶</span></td>
+                <td data-label="产地">安徽黄山</td>
+                <td data-label="发酵程度">不发酵</td>
+                <td class="tea-flavor" data-label="风味特点">形似雀舌，清香如兰，回甘明显</td>
+                <td class="tea-temp" data-label="建议水温">80–85℃</td>
+              </tr>
+              <tr data-type="绿茶">
+                <td class="tea-name" data-label="名称">六安瓜片</td>
+                <td data-label="茶类"><span class="badge green">绿茶</span></td>
+                <td data-label="产地">安徽六安</td>
+                <td data-label="发酵程度">不发酵</td>
+                <td class="tea-flavor" data-label="风味特点">单片无芽无梗，栗香浓郁，滋味鲜醇</td>
+                <td class="tea-temp" data-label="建议水温">80–85℃</td>
+              </tr>
+              <tr data-type="白茶">
+                <td class="tea-name" data-label="名称">白毫银针</td>
+                <td data-label="茶类"><span class="badge white">白茶</span></td>
+                <td data-label="产地">福建福鼎、政和</td>
+                <td data-label="发酵程度">微发酵</td>
+                <td class="tea-flavor" data-label="风味特点">芽头肥壮，满披白毫，毫香蜜韵</td>
+                <td class="tea-temp" data-label="建议水温">85–90℃</td>
+              </tr>
+              <tr data-type="白茶">
+                <td class="tea-name" data-label="名称">白牡丹</td>
+                <td data-label="茶类"><span class="badge white">白茶</span></td>
+                <td data-label="产地">福建福鼎、政和</td>
+                <td data-label="发酵程度">微发酵</td>
+                <td class="tea-flavor" data-label="风味特点">一芽一二叶，花香鲜爽，汤色杏黄</td>
+                <td class="tea-temp" data-label="建议水温">85–90℃</td>
+              </tr>
+              <tr data-type="黄茶">
+                <td class="tea-name" data-label="名称">君山银针</td>
+                <td data-label="茶类"><span class="badge yellow">黄茶</span></td>
+                <td data-label="产地">湖南岳阳</td>
+                <td data-label="发酵程度">轻发酵</td>
+                <td class="tea-flavor" data-label="风味特点">芽头茁壮，冲泡时“三起三落”，甘甜醇和</td>
+                <td class="tea-temp" data-label="建议水温">80–85℃</td>
+              </tr>
+              <tr data-type="青茶">
+                <td class="tea-name" data-label="名称">安溪铁观音</td>
+                <td data-label="茶类"><span class="badge oolong">青茶</span></td>
+                <td data-label="产地">福建安溪</td>
+                <td data-label="发酵程度">半发酵</td>
+                <td class="tea-flavor" data-label="风味特点">兰花香馥郁，“音韵”明显，七泡有余香</td>
+                <td class="tea-temp" data-label="建议水温">95–100℃</td>
+              </tr>
+              <tr data-type="青茶">
+                <td class="tea-name" data-label="名称">武夷大红袍</td>
+                <td data-label="茶类"><span class="badge oolong">青茶</span></td>
+                <td data-label="产地">福建武夷山</td>
+                <td data-label="发酵程度">半发酵</td>
+                <td class="tea-flavor" data-label="风味特点">岩骨花香，“岩韵”浓厚，焙火香明显</td>
+                <td class="tea-temp" data-label="建议水温">100℃</td>
+              </tr>
+              <tr data-type="青茶">
+                <td class="tea-name" data-label="名称">凤凰单丛</td>
+                <td data-label="茶类"><span class="badge oolong">青茶</span></td>
+                <td data-label="产地">广东潮州</td>
+                <td data-label="发酵程度">半发酵</td>
+                <td class="tea-flavor" data-label="风味特点">“一丛一香”，有蜜兰香、黄枝香等多种香型</td>
+                <td class="tea-temp" data-label="建议水温">100℃</td>
+              </tr>
+              <tr data-type="红茶">
+                <td class="tea-name" data-label="名称">祁门红茶</td>
+                <td data-label="茶类"><span class="badge red">红茶</span></td>
+                <td data-label="产地">安徽祁门</td>
+                <td data-label="发酵程度">全发酵</td>
+                <td class="tea-flavor" data-label="风味特点">独特的“祁门香”，似蜜糖香又带兰花香</td>
+                <td class="tea-temp" data-label="建议水温">90–95℃</td>
+              </tr>
+              <tr data-type="红茶">
+                <td class="tea-name" data-label="名称">正山小种</td>
+                <td data-label="茶类"><span class="badge red">红茶</span></td>
+                <td data-label="产地">福建武夷山桐木关</td>
+                <td data-label="发酵程度">全发酵</td>
+                <td class="tea-flavor" data-label="风味特点">传统工艺带松烟香，汤中有桂圆味</td>
+                <td class="tea-temp" data-label="建议水温">90–95℃</td>
+              </tr>
+              <tr data-type="红茶">
+                <td class="tea-name" data-label="名称">滇红工夫</td>
+                <td data-label="茶类"><span class="badge red">红茶</span></td>
+                <td data-label="产地">云南临沧、凤庆</td>
+                <td data-label="发酵程度">全发酵</td>
+                <td class="tea-flavor" data-label="风味特点">金毫显露，香气鲜郁，滋味浓强</td>
+                <td class="tea-temp" data-label="建议水温">90–95℃</td>
+              </tr>
+              <tr data-type="黑茶">
+                <td class="tea-name" data-label="名称">普洱熟茶</td>
+                <td data-label="茶类"><span class="badge dark">黑茶</span></td>
+                <td data-label="产地">云南普洱、西双版纳</td>
+                <td data-label="发酵程度">后发酵</td>
+                <td class="tea-flavor" data-label="风味特点">陈香醇厚，汤色红浓明亮，口感顺滑</td>
+                <td class="tea-temp" data-label="建议水温">100℃</td>
+              </tr>
+              <tr data-type="黑茶">
+                <td class="tea-name" data-label="名称">安化黑茶</td>
+                <td data-label="茶类"><span class="badge dark">黑茶</span></td>
+                <td data-label="产地">湖南安化</td>
+                <td data-label="发酵程度">后发酵</td>
+                <td class="tea-flavor" data-label="风味特点">茯砖有“金花”菌香，滋味醇和，适合煮饮</td>
+                <td class="tea-temp" data-label="建议水温">100℃</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- 搜索不到结果时显示（默认隐藏） -->
+          <div class="list-empty" id="tea-empty" hidden>
+            <strong>没有找到相关的茶</strong>
+            换个关键词试试，比如“龙井”“云南”或“花香”。
+          </div>
+        </div>
+
+        <p class="list-note">注：建议水温为一般参考值，可根据茶叶老嫩和个人口味适当调整。</p>
+      </div>
+    </section>
+
+    <!-- ==================== 冲泡小贴士 ==================== -->
+    <section class="section section-tinted">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-sub">BREWING TIPS</span>
+          <h2>冲泡小贴士</h2>
+          <p>同样的茶叶，泡法不同，味道也大不一样。</p>
+        </div>
+
+        <div class="tips-grid">
+          <article class="tip-card reveal">
+            <span class="tip-icon">
+              <!-- 温度计图标 -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/><path d="M12 9v7"/></svg>
+            </span>
+            <div>
+              <h3>看茶选水温</h3>
+              <p>细嫩的绿茶、黄茶用 80℃ 左右的水，避免烫熟茶芽；乌龙茶、黑茶要用 100℃ 沸水才能激发香气。</p>
+            </div>
+          </article>
+          <article class="tip-card reveal">
+            <span class="tip-icon">
+              <!-- 茶叶图标 -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15z"/><path d="M5 19l8-8"/></svg>
+            </span>
+            <div>
+              <h3>控制投茶量</h3>
+              <p>一般茶与水的比例约为 1 : 50，即 3 克茶叶配 150 毫升水。乌龙茶、普洱可适当多放一些。</p>
+            </div>
+          </article>
+          <article class="tip-card reveal">
+            <span class="tip-icon">
+              <!-- 时钟图标 -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <div>
+              <h3>把握出汤时间</h3>
+              <p>用盖碗或小壶冲泡时，前几泡 10–30 秒即可出汤，之后每泡逐渐延长，茶汤就不容易苦涩。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 页脚 ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a class="logo" href="index.html">
+          <span class="logo-seal">茶</span>
+          <span class="logo-text">茶韵<small>中国茶文化</small></span>
+        </a>
+        <p>茶韵是一个介绍中国茶文化的主题网站。从茶的历史、六大茶类到品茶礼仪，带你走近一片树叶的千年旅程。</p>
+      </div>
+      <div>
+        <h3>站点导航</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html">茶史渊源</a></li>
+          <li><a href="gallery.html">茶韵图集</a></li>
+          <li><a href="list.html">名茶列表</a></li>
+          <li><a href="contact.html">留言板</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>联系我们</h3>
+        <ul class="footer-links">
+          <li>茶韵 · 茶文化社</li>
+          <li>XX 大学学生活动中心 302 室</li>
+          <li>每周三、周五 18:30 – 20:30</li>
+          <li>chayun@example.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <!-- 作业信息：把下面的课程名、姓名、学号换成你自己的 -->
+        <p>© 2026 茶韵 · 中国茶文化 ｜ 《网页设计与制作》课程期末作业 ｜ 制作：张同学 · 学号 2023xxxxxx</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+</body>
+</html>

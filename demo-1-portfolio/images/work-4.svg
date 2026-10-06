@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <!-- 作品封面 4：Pulse 健身打卡小程序 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fb7185"/><stop offset="1" stop-color="#f97316"/></linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fb7185"/><stop offset="1" stop-color="#f97316"/></linearGradient>
+    <filter id="sh" x="-30%" y="-20%" width="160%" height="150%"><feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#7c2d12" flood-opacity=".4"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="400" cy="300" r="250" fill="none" stroke="#fff" stroke-opacity=".15" stroke-width="2"/>
+  <circle cx="400" cy="300" r="320" fill="none" stroke="#fff" stroke-opacity=".1" stroke-width="2"/>
+
+  <g transform="translate(294 62)" filter="url(#sh)">
+    <rect width="212" height="476" rx="36" fill="#0b0f1a"/>
+    <rect x="8" y="8" width="196" height="460" rx="29" fill="#111827"/>
+    <rect x="78" y="18" width="56" height="14" rx="7" fill="#000"/>
+    <text x="26" y="68" font-size="11" fill="#9ca3af">早上好，小满</text>
+    <text x="26" y="92" font-size="17" font-weight="700" fill="#fff">今日能量</text>
+    <g transform="translate(106 172) rotate(-90)" fill="none" stroke-linecap="round">
+      <circle r="60" stroke="#fb7185" stroke-opacity=".2" stroke-width="14"/>
+      <circle r="60" stroke="#fb7185" stroke-width="14" stroke-dasharray="300 400"/>
+      <circle r="42" stroke="#a3e635" stroke-opacity=".2" stroke-width="14"/>
+      <circle r="42" stroke="#a3e635" stroke-width="14" stroke-dasharray="190 400"/>
+      <circle r="24" stroke="#22d3ee" stroke-opacity=".2" stroke-width="14"/>
+      <circle r="24" stroke="#22d3ee" stroke-width="14" stroke-dasharray="120 400"/>
+    </g>
+    <text x="106" y="270" font-size="30" font-weight="800" fill="#fff" text-anchor="middle">8,432</text>
+    <text x="106" y="290" font-size="10.5" fill="#9ca3af" text-anchor="middle">步 · 目标 10,000</text>
+    <g font-size="10" text-anchor="middle">
+      <rect x="22" y="310" width="52" height="58" rx="12" fill="#1f2937"/><text x="48" y="336" font-size="14" font-weight="700" fill="#fb7185">420</text><text x="48" y="354" fill="#9ca3af">千卡</text>
+      <rect x="80" y="310" width="52" height="58" rx="12" fill="#1f2937"/><text x="106" y="336" font-size="14" font-weight="700" fill="#a3e635">38</text><text x="106" y="354" fill="#9ca3af">分钟</text>
+      <rect x="138" y="310" width="52" height="58" rx="12" fill="#1f2937"/><text x="164" y="336" font-size="14" font-weight="700" fill="#22d3ee">6</text><text x="164" y="354" fill="#9ca3af">组训练</text>
+    </g>
+    <rect x="22" y="390" width="168" height="44" rx="22" fill="url(#btn)"/>
+    <text x="106" y="417" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">开始今日训练</text>
+  </g>
+
+  <!-- 悬浮卡片 -->
+  <g transform="translate(70 168)" filter="url(#sh)">
+    <rect width="190" height="76" rx="18" fill="#fff"/>
+    <circle cx="38" cy="38" r="20" fill="#fff7ed"/>
+    <path d="M38 24 C46 34 48 40 44 47 C42 51 34 52 32 47 C30 42 34 40 34 36 C30 39 28 43 29 47 C26 42 28 32 38 24 Z" fill="#f97316"/>
+    <text x="70" y="34" font-size="11" fill="#6b7280">连续打卡</text>
+    <text x="70" y="56" font-size="19" font-weight="800" fill="#111827">21 天</text>
+  </g>
+  <g transform="translate(548 336)" filter="url(#sh)">
+    <rect width="186" height="104" rx="18" fill="#fff"/>
+    <text x="20" y="32" font-size="11" fill="#6b7280">本周消耗</text>
+    <text x="20" y="56" font-size="19" font-weight="800" fill="#111827">2,180 <tspan font-size="11" fill="#6b7280" font-weight="400">kcal</tspan></text>
+    <g fill="#fdba74"><rect x="20" y="74" width="14" height="16" rx="4"/><rect x="40" y="68" width="14" height="22" rx="4"/><rect x="60" y="76" width="14" height="14" rx="4"/><rect x="80" y="64" width="14" height="26" rx="4" fill="#f97316"/><rect x="100" y="72" width="14" height="18" rx="4"/><rect x="120" y="70" width="14" height="20" rx="4"/><rect x="140" y="78" width="14" height="12" rx="4"/></g>
+  </g>
+  <text x="560" y="96" font-size="26" font-weight="800" fill="#fff">Pulse</text>
+  <text x="560" y="120" font-size="12" fill="#fff" opacity=".75" letter-spacing="2">FITNESS MINI APP</text>
+</svg>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>茶史渊源 | 茶韵 · 中国茶文化</title>
+  <meta name="description" content="从神农尝百草的传说，到唐代陆羽《茶经》、宋代点茶斗茶、明清散茶冲泡，再到今天的人类非物质文化遗产，读懂中国茶的千年历史。">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- 分享卡片（部署后 og:image 改为绝对地址） -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="茶史渊源 | 茶韵 · 中国茶文化">
+  <meta property="og:description" content="五个时期，读懂中国茶的千年旅程。">
+  <meta property="og:image" content="og.png">
+  <meta name="theme-color" content="#f6f1e7">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 给 <html> 加上 js 类，滚动渐入动画才会生效（见 style.css 第 16 部分）。
+       保险措施：如果 2 秒后 main.js 还没加载成功，就去掉 js 类，保证内容一定能显示出来 -->
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () {
+      if (!window.mainScriptLoaded) {
+        document.documentElement.classList.remove('js');
+      }
+    }, 2000);
+  </script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- ==================== 顶部导航栏 ==================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="茶韵 · 返回首页">
+        <span class="logo-seal">茶</span>
+        <span class="logo-text">茶韵<small>中国茶文化</small></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        <ul class="nav-list">
+          <li><a href="index.html">首页</a></li>
+          <!-- 当前页面是"茶史渊源"，所以 active 加在这里 -->
+          <li><a href="about.html" class="active" aria-current="page">茶史渊源</a></li>
+          <li><a href="gallery.html">茶韵图集</a></li>
+          <li><a href="list.html">名茶列表</a></li>
+          <li><a href="contact.html">留言板</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================== 页面横幅（背景图在 style.css 的 .banner-about 里设置） ==================== -->
+    <section class="page-banner banner-about">
+      <div class="container">
+        <!-- 面包屑导航：告诉用户当前在网站的哪个位置 -->
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="index.html">首页</a><span>/</span>茶史渊源
+        </nav>
+        <h1>茶史渊源</h1>
+        <p>茶起源于中国。从药用到饮用，从煎茶、点茶到泡茶，每个朝代都有属于自己的一杯茶。</p>
+      </div>
+    </section>
+
+    <!-- ==================== 历史故事：图文左右交错 ==================== -->
+    <!-- 每个 <article class="story"> 是一个时期。CSS 用 :nth-child(even) 让第 2、4 个的图片排到右边 -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-sub">HISTORY OF TEA</span>
+          <h2>茶的千年旅程</h2>
+          <p>从神农尝百草的传说，到今天的人类非物质文化遗产，五个时期读懂中国茶。</p>
+        </div>
+
+        <div class="story-list">
+
+          <!-- 第 1 个时期：远古 -->
+          <article class="story reveal">
+            <figure class="story-img">
+              <img src="images/tea-branch.svg" alt="一枝带着嫩芽的茶树枝条">
+              <span class="story-era">远古</span>
+            </figure>
+            <div class="story-text">
+              <span class="story-time">约四千多年前 · 传说时代</span>
+              <h2>神农尝百草，茶的发现</h2>
+              <p>相传上古时期，神农氏为了辨别草木的药性，亲尝百草，一天之内多次中毒，偶然尝到茶树的叶子才得以解毒。这个传说说明，茶最早是作为一种药物被人们认识和利用的。</p>
+              <p>到了西汉，四川一带已经出现了茶叶市场。王褒《僮约》中“烹荼尽具”“武阳买荼”的记载，是世界上关于饮茶和茶叶买卖最早的文字记录之一。</p>
+              <blockquote>
+                “神农尝百草，日遇七十二毒，得荼而解之。”
+                <cite>—— 相传出自《神农本草经》，“荼”即古代的“茶”字</cite>
+              </blockquote>
+            </div>
+          </article>
+
+          <!-- 第 2 个时期：唐（偶数个，图片自动排到右边） -->
+          <article class="story reveal">
+            <figure class="story-img">
+              <img src="images/tea-classic.svg" alt="线装书《茶经》、毛笔与一杯茶">
+              <span class="story-era">唐代</span>
+            </figure>
+            <div class="story-text">
+              <span class="story-time">公元 618 – 907 年</span>
+              <h2>陆羽著《茶经》，茶道大兴</h2>
+              <p>唐代饮茶之风遍及全国。被后人尊为“茶圣”的陆羽走访各地茶区，写成了世界上第一部茶学专著《茶经》。全书三卷十章，系统记录了茶的起源、采制、器具和饮用方法。</p>
+              <p>唐人流行“煎茶法”：先把茶饼烤炙、碾成细末，再投入沸水中煎煮，讲究观察水的“三沸”，并在茶汤中加入少许盐调味。</p>
+              <blockquote>
+                “茶者，南方之嘉木也。”
+                <cite>—— 唐 · 陆羽《茶经 · 一之源》</cite>
+              </blockquote>
+            </div>
+          </article>
+
+          <!-- 第 3 个时期：宋 -->
+          <article class="story reveal">
+            <figure class="story-img">
+              <img src="images/jian-bowl.svg" alt="盛满白色汤花的黑釉建盏与竹制茶筅">
+              <span class="story-era">宋代</span>
+            </figure>
+            <div class="story-text">
+              <span class="story-time">公元 960 – 1279 年</span>
+              <h2>点茶与斗茶，风雅极致</h2>
+              <p>宋代流行“点茶法”：把茶末放入茶盏，先注入少量沸水调成膏状，再一边注水一边用茶筅快速击拂，直到茶汤表面泛起细腻洁白的汤花。</p>
+              <p>文人雅士之间还盛行“斗茶”，比的是汤花是否鲜白、汤花贴着盏壁能保持多久。为了衬托白色的汤花，黑釉建盏成了当时最受推崇的茶具。宋徽宗赵佶还亲自写了一部《大观茶论》。</p>
+              <blockquote>
+                “盏色贵青黑，玉毫条达者为上。”
+                <cite>—— 宋 · 赵佶《大观茶论》</cite>
+              </blockquote>
+            </div>
+          </article>
+
+          <!-- 第 4 个时期：明清 -->
+          <article class="story reveal">
+            <figure class="story-img">
+              <img src="images/gongfu-set.svg" alt="茶盘上的紫砂壶、公道杯和三只品茗杯">
+              <span class="story-era">明清</span>
+            </figure>
+            <div class="story-text">
+              <span class="story-time">公元 1368 – 1912 年</span>
+              <h2>散茶冲泡，紫砂与功夫茶</h2>
+              <p>明洪武二十四年（1391 年），明太祖朱元璋下诏“罢造龙团”，改以散茶进贡。从此，用沸水直接冲泡散茶的方法逐渐普及，一直沿用到今天。</p>
+              <p>冲泡法的流行带动了茶具的变革：江苏宜兴的紫砂壶受到文人追捧；清代广东潮汕、福建一带形成了讲究器具与程序的“功夫茶”，乌龙茶、红茶也相继出现并远销海外。</p>
+              <blockquote>
+                “壶以砂者为上，盖既不夺香，又无熟汤气。”
+                <cite>—— 明 · 文震亨《长物志》</cite>
+              </blockquote>
+            </div>
+          </article>
+
+          <!-- 第 5 个时期：当代 -->
+          <article class="story reveal">
+            <figure class="story-img">
+              <img src="images/stove-tea.svg" alt="冬日围炉煮茶：炭炉、铁壶、橘子和茶杯">
+              <span class="story-era">当代</span>
+            </figure>
+            <div class="story-text">
+              <span class="story-time">今天</span>
+              <h2>茶与生活，走向世界</h2>
+              <p>中国是世界上最大的茶叶生产国和消费国。2019 年，联合国大会将每年的 5 月 21 日设立为“国际茶日”；2022 年，“中国传统制茶技艺及其相关习俗”被列入联合国教科文组织人类非物质文化遗产代表作名录。</p>
+              <p>在年轻人中，新式茶饮、围炉煮茶、露营茶席等新玩法层出不穷。古老的茶，正以新的方式融入现代生活。</p>
+              <blockquote>
+                “茶，香叶，嫩芽。慕诗客，爱僧家。”
+                <cite>—— 唐 · 元稹《一字至七字诗 · 茶》</cite>
+              </blockquote>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 茶礼小知识：三张卡片 ==================== -->
+    <section class="section section-tinted">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-sub">TEA ETIQUETTE</span>
+          <h2>茶桌上的礼仪</h2>
+          <p>以茶待客是中国人的传统，一杯茶里也藏着许多讲究。</p>
+        </div>
+
+        <div class="etiquette-grid">
+          <article class="etiquette-card reveal">
+            <span class="num">壹</span>
+            <h3>叩指礼</h3>
+            <p>别人为你斟茶时，将食指和中指并拢，在桌面上轻叩两三下，表示感谢。相传源于乾隆微服南巡时，随从以手指代替下跪行礼的故事。</p>
+          </article>
+          <article class="etiquette-card reveal">
+            <span class="num">贰</span>
+            <h3>茶七酒八</h3>
+            <p>俗话说“茶满欺客，酒满敬人”。斟茶一般以七分满为宜，既方便客人端杯不烫手，也寓意“留三分人情”。</p>
+          </article>
+          <article class="etiquette-card reveal">
+            <span class="num">叁</span>
+            <h3>凤凰三点头</h3>
+            <p>冲泡时手提水壶，由低到高连续上下拉动三次，让茶叶在杯中充分翻滚，寓意向客人三鞠躬，表示欢迎与敬意。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 页脚 ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a class="logo" href="index.html">
+          <span class="logo-seal">茶</span>
+          <span class="logo-text">茶韵<small>中国茶文化</small></span>
+        </a>
+        <p>茶韵是一个介绍中国茶文化的主题网站。从茶的历史、六大茶类到品茶礼仪，带你走近一片树叶的千年旅程。</p>
+      </div>
+      <div>
+        <h3>站点导航</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html">茶史渊源</a></li>
+          <li><a href="gallery.html">茶韵图集</a></li>
+          <li><a href="list.html">名茶列表</a></li>
+          <li><a href="contact.html">留言板</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>联系我们</h3>
+        <ul class="footer-links">
+          <li>茶韵 · 茶文化社</li>
+          <li>XX 大学学生活动中心 302 室</li>
+          <li>每周三、周五 18:30 – 20:30</li>
+          <li>chayun@example.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <!-- 作业信息：把下面的课程名、姓名、学号换成你自己的 -->
+        <p>© 2026 茶韵 · 中国茶文化 ｜ 《网页设计与制作》课程期末作业 ｜ 制作：张同学 · 学号 2023xxxxxx</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+</body>
+</html>

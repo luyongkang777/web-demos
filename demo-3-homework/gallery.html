@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>茶韵图集 | 茶韵 · 中国茶文化</title>
+  <meta name="description" content="茶韵图集：以插画的方式记录茶山、茶器与茶事里的东方美学，点击图片可放大欣赏。">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- 分享卡片（部署后 og:image 改为绝对地址） -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="茶韵图集 | 茶韵 · 中国茶文化">
+  <meta property="og:description" content="茶山、茶器与茶事里的东方美学。">
+  <meta property="og:image" content="og.png">
+  <meta name="theme-color" content="#f6f1e7">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 给 <html> 加上 js 类，滚动渐入动画才会生效（见 style.css 第 16 部分）。
+       保险措施：如果 2 秒后 main.js 还没加载成功，就去掉 js 类，保证内容一定能显示出来 -->
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () {
+      if (!window.mainScriptLoaded) {
+        document.documentElement.classList.remove('js');
+      }
+    }, 2000);
+  </script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- ==================== 顶部导航栏 ==================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="茶韵 · 返回首页">
+        <span class="logo-seal">茶</span>
+        <span class="logo-text">茶韵<small>中国茶文化</small></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        <ul class="nav-list">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html">茶史渊源</a></li>
+          <!-- 当前页面是"茶韵图集" -->
+          <li><a href="gallery.html" class="active" aria-current="page">茶韵图集</a></li>
+          <li><a href="list.html">名茶列表</a></li>
+          <li><a href="contact.html">留言板</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================== 页面横幅 ==================== -->
+    <section class="page-banner banner-gallery">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="index.html">首页</a><span>/</span>茶韵图集
+        </nav>
+        <h1>茶韵图集</h1>
+        <p>以插画的方式，记录茶山、茶器与茶事里的东方美学。点击任意图片即可放大欣赏。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- ==================== 分类筛选按钮 ==================== -->
+        <!-- data-filter 的值要和下面图片的 data-category 对应 -->
+        <div class="gallery-toolbar">
+          <div class="filter-bar" id="gallery-filters" role="group" aria-label="图片分类">
+            <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">全部</button>
+            <button class="filter-btn" type="button" data-filter="mountain" aria-pressed="false">茶山</button>
+            <button class="filter-btn" type="button" data-filter="ware" aria-pressed="false">茶器</button>
+            <button class="filter-btn" type="button" data-filter="life" aria-pressed="false">茶事</button>
+          </div>
+          <p class="gallery-tip">共 <strong id="gallery-count">12</strong> 幅作品 · 点击图片查看大图</p>
+        </div>
+
+        <!-- ==================== 图片网格 ==================== -->
+        <!--
+          每张图片的结构：
+          <figure class="gallery-item" data-category="分类">
+            <a href="大图地址" data-title="标题" data-desc="描述"> <img 缩略图> </a>
+            <figcaption> 标题和分类 </figcaption>
+          </figure>
+          class 里加 wide 的图片在电脑上会占两列宽。
+          即使 JS 没加载，点击链接也能直接打开大图。
+          换成自己的照片：把图片放进 images 文件夹，修改 href 和 src 即可。
+        -->
+        <div class="gallery-grid">
+
+          <figure class="gallery-item wide" data-category="mountain">
+            <a class="gallery-link" href="images/tea-mountains.svg" data-title="云岭茶山" data-desc="高山云雾出好茶，层层茶垄沿着山势铺展开来。">
+              <img src="images/tea-mountains.svg" alt="云雾缭绕的群山与层层茶园">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>云岭茶山</h3><span>茶山</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-category="ware">
+            <a class="gallery-link" href="images/teapot-moon.svg" data-title="紫砂月下" data-desc="一壶一月，两盏清茶，梅枝横斜。">
+              <img src="images/teapot-moon.svg" alt="月下的紫砂壶与两只茶杯" style="object-position: 75% center;">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>紫砂月下</h3><span>茶器</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-category="ware">
+            <a class="gallery-link" href="images/gaiwan-tea.svg" data-title="白瓷清茶" data-desc="青花盖碗，汤色清亮，一叶浮沉。">
+              <img src="images/gaiwan-tea.svg" alt="青花盖碗中的一杯绿茶">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>白瓷清茶</h3><span>茶器</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item wide" data-category="mountain">
+            <a class="gallery-link" href="images/tea-picking.svg" data-title="春日采茶" data-desc="清明前后，采茶人头戴斗笠，穿行在茶垄之间。">
+              <img src="images/tea-picking.svg" alt="头戴斗笠的采茶人在茶园采茶" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>春日采茶</h3><span>茶山</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-category="mountain">
+            <a class="gallery-link" href="images/tea-branch.svg" data-title="一芽两叶" data-desc="一芽两叶，是许多名优绿茶理想的采摘标准。">
+              <img src="images/tea-branch.svg" alt="带着嫩芽的茶树枝条" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>一芽两叶</h3><span>茶山</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-category="ware">
+            <a class="gallery-link" href="images/jian-bowl.svg" data-title="建盏点茶" data-desc="宋人以黑釉建盏，衬托雪白的汤花。">
+              <img src="images/jian-bowl.svg" alt="黑釉建盏与竹制茶筅" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>建盏点茶</h3><span>茶器</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item wide" data-category="life">
+            <a class="gallery-link" href="images/lake-pavilion.svg" data-title="湖畔茶亭" data-desc="垂柳、远山与一叶扁舟，湖畔亭中正好煮茶。">
+              <img src="images/lake-pavilion.svg" alt="湖畔的茶亭、垂柳与小船" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>湖畔茶亭</h3><span>茶事</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-category="life">
+            <a class="gallery-link" href="images/tea-classic.svg" data-title="茶经古卷" data-desc="陆羽《茶经》，世界上第一部茶学专著。">
+              <img src="images/tea-classic.svg" alt="线装书《茶经》与毛笔" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>茶经古卷</h3><span>茶事</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-category="ware">
+            <a class="gallery-link" href="images/gongfu-set.svg" data-title="功夫茶具" data-desc="紫砂壶、公道杯与品茗杯，潮汕功夫茶的标准配置。">
+              <img src="images/gongfu-set.svg" alt="茶盘上的紫砂壶、公道杯和品茗杯" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>功夫茶具</h3><span>茶器</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-category="life">
+            <a class="gallery-link" href="images/bamboo-tea.svg" data-title="竹林煮茗" data-desc="竹炉汤沸，月影婆娑，一壶清茶伴竹声。">
+              <img src="images/bamboo-tea.svg" alt="月下竹林中的小炉与茶壶" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>竹林煮茗</h3><span>茶事</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item wide" data-category="mountain">
+            <a class="gallery-link" href="images/tea-field.svg" data-title="茶垄晨光" data-desc="朝阳初升，薄雾散去，茶垄如织。">
+              <img src="images/tea-field.svg" alt="朝阳下一望无际的茶垄" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>茶垄晨光</h3><span>茶山</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-category="life">
+            <a class="gallery-link" href="images/stove-tea.svg" data-title="围炉煮茶" data-desc="冬日围炉，烤橘煮茶，窗外梅花正开。">
+              <img src="images/stove-tea.svg" alt="炭炉上的铁壶、橘子与茶杯" loading="lazy">
+              <span class="gallery-zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+            </a>
+            <figcaption><h3>围炉煮茶</h3><span>茶事</span></figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 灯箱（默认隐藏，点击图片后由 JS 打开） ==================== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="图片预览" aria-hidden="true">
+    <span class="lightbox-counter">1 / 12</span>
+    <button class="lightbox-btn lightbox-close" type="button" aria-label="关闭">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <button class="lightbox-btn lightbox-prev" type="button" aria-label="上一张">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <figure class="lightbox-figure">
+      <!-- 大图的 src 由 JS 填入 -->
+      <img class="lightbox-img" alt="">
+      <figcaption class="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox-btn lightbox-next" type="button" aria-label="下一张">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <!-- ==================== 页脚 ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a class="logo" href="index.html">
+          <span class="logo-seal">茶</span>
+          <span class="logo-text">茶韵<small>中国茶文化</small></span>
+        </a>
+        <p>茶韵是一个介绍中国茶文化的主题网站。从茶的历史、六大茶类到品茶礼仪，带你走近一片树叶的千年旅程。</p>
+      </div>
+      <div>
+        <h3>站点导航</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html">茶史渊源</a></li>
+          <li><a href="gallery.html">茶韵图集</a></li>
+          <li><a href="list.html">名茶列表</a></li>
+          <li><a href="contact.html">留言板</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>联系我们</h3>
+        <ul class="footer-links">
+          <li>茶韵 · 茶文化社</li>
+          <li>XX 大学学生活动中心 302 室</li>
+          <li>每周三、周五 18:30 – 20:30</li>
+          <li>chayun@example.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <!-- 作业信息：把下面的课程名、姓名、学号换成你自己的 -->
+        <p>© 2026 茶韵 · 中国茶文化 ｜ 《网页设计与制作》课程期末作业 ｜ 制作：张同学 · 学号 2023xxxxxx</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+</body>
+</html>

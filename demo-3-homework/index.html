@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!-- lang="zh-CN" 告诉浏览器和搜索引擎：这是一个简体中文网页 -->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <!-- 让页面在手机上按设备宽度显示，而不是缩小成电脑版 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>茶韵 · 中国茶文化 | 首页</title>
+  <meta name="description" content="茶韵 · 中国茶文化主题网站：了解茶的历史、六大茶类、名茶产地与品茶礼仪，感受一片树叶的千年旅程。">
+  <!-- 网站图标：显示在浏览器标签页上 -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- 分享卡片：在微信 / QQ / 社交平台分享链接时显示的标题、描述和缩略图 -->
+  <!-- 注意：部署上线后，og:image 要改为绝对地址，例如 https://你的域名/og.png -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="茶韵 · 中国茶文化">
+  <meta property="og:description" content="一片树叶，千年茶香。了解茶的历史、六大茶类与品茶礼仪。">
+  <meta property="og:image" content="og.png">
+  <meta name="theme-color" content="#f6f1e7">
+  <!-- 引入全站公共样式表 -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 给 <html> 加上 js 类，滚动渐入动画才会生效（见 style.css 第 16 部分）。
+       保险措施：如果 2 秒后 main.js 还没加载成功，就去掉 js 类，保证内容一定能显示出来 -->
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () {
+      if (!window.mainScriptLoaded) {
+        document.documentElement.classList.remove('js');
+      }
+    }, 2000);
+  </script>
+  <!-- 引入全站公共脚本。defer：等 HTML 解析完再执行，这样脚本能找到页面上的所有元素 -->
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- ==================== 顶部导航栏（5 个页面都一样） ==================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Logo：朱红印章 + 网站名 -->
+      <a class="logo" href="index.html" aria-label="茶韵 · 返回首页">
+        <span class="logo-seal">茶</span>
+        <span class="logo-text">茶韵<small>中国茶文化</small></span>
+      </a>
+
+      <!-- 汉堡菜单按钮：只在手机上显示，点击展开导航 -->
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        <ul class="nav-list">
+          <!-- 当前在哪个页面，就给哪个链接加上 class="active"，它会高亮显示 -->
+          <li><a href="index.html" class="active" aria-current="page">首页</a></li>
+          <li><a href="about.html">茶史渊源</a></li>
+          <li><a href="gallery.html">茶韵图集</a></li>
+          <li><a href="list.html">名茶列表</a></li>
+          <li><a href="contact.html">留言板</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================== 轮播图 ==================== -->
+    <!-- 4 张图片叠在一起，带 active 类的那张显示；JS 每 4 秒切换一次 -->
+    <!-- 换图片：把 images 文件夹里的图换成你自己的 .jpg，再修改下面的 src 即可 -->
+    <section class="hero container" aria-label="首页轮播图">
+      <div class="carousel" id="carousel">
+
+        <!-- 第 1 张（默认显示，所以带 active） -->
+        <!-- style="object-position" 决定手机竖屏裁剪图片时保留哪一部分（80% 表示偏右） -->
+        <figure class="carousel-slide active">
+          <img src="images/tea-mountains.svg" alt="云雾缭绕的群山与层层叠叠的茶园" style="object-position: 80% center;">
+          <figcaption class="carousel-caption">
+            <span class="caption-tag">茶山 · 云雾</span>
+            <h2>高山云雾出好茶</h2>
+            <p>中国是茶的故乡。从云南到浙江，千里茶山孕育了上千种各具风味的名茶。</p>
+          </figcaption>
+        </figure>
+
+        <!-- 第 2 张 -->
+        <figure class="carousel-slide">
+          <img src="images/tea-picking.svg" alt="头戴斗笠的采茶人在茶园中采摘新叶" style="object-position: 55% center;">
+          <figcaption class="carousel-caption">
+            <span class="caption-tag">采茶 · 清明前后</span>
+            <h2>一芽一叶，皆是春天</h2>
+            <p>明前茶嫩，雨前茶香。采茶人指尖轻提，摘下一年中最鲜嫩的那抹绿。</p>
+          </figcaption>
+        </figure>
+
+        <!-- 第 3 张 -->
+        <figure class="carousel-slide">
+          <img src="images/teapot-moon.svg" alt="月下的紫砂壶与两只茶杯，梅枝横斜" style="object-position: 78% center;">
+          <figcaption class="carousel-caption">
+            <span class="caption-tag">茶器 · 紫砂</span>
+            <h2>一壶月色，半盏清欢</h2>
+            <p>宜兴紫砂壶透气而不透水，泡茶不失原味，自明代起便是文人案头的雅物。</p>
+          </figcaption>
+        </figure>
+
+        <!-- 第 4 张 -->
+        <figure class="carousel-slide">
+          <img src="images/lake-pavilion.svg" alt="湖畔的茶亭、垂柳与远山" style="object-position: 15% center;">
+          <figcaption class="carousel-caption">
+            <span class="caption-tag">茶事 · 雅集</span>
+            <h2>湖畔煮茶，以茶会友</h2>
+            <p>从唐代的茶宴到今天的围炉煮茶，饮茶始终是中国人亲近自然、联络情谊的方式。</p>
+          </figcaption>
+        </figure>
+
+        <!-- 左右切换按钮（里面的 svg 是箭头图标） -->
+        <button class="carousel-btn carousel-prev" type="button" aria-label="上一张">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="carousel-btn carousel-next" type="button" aria-label="下一张">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+
+        <!-- 圆点指示器：数量要和图片数量一致 -->
+        <div class="carousel-dots">
+          <button class="carousel-dot active" type="button" aria-label="第 1 张" aria-current="true"></button>
+          <button class="carousel-dot" type="button" aria-label="第 2 张"></button>
+          <button class="carousel-dot" type="button" aria-label="第 3 张"></button>
+          <button class="carousel-dot" type="button" aria-label="第 4 张"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 主题介绍 ==================== -->
+    <section class="section">
+      <div class="container intro">
+        <!-- 左侧：文字介绍 -->
+        <div class="intro-text reveal">
+          <span class="section-sub">ABOUT CHINESE TEA</span>
+          <h2>一片树叶，<em>千年茶香</em></h2>
+          <p>中国是茶的故乡。相传神农氏尝百草时发现了茶，此后数千年里，茶从药用走向饮用，从宫廷走进寻常百姓家。“柴米油盐酱醋茶”，茶早已成为中国人日常生活的一部分。</p>
+          <p>茶还沿着丝绸之路、茶马古道和海上航线走向世界。今天，世界各地对“茶”的叫法，大多源自中国方言的两种读音 —— 北方话的 “cha” 和闽南话的 “te”。</p>
+
+          <!-- 三个数据 -->
+          <ul class="intro-stats">
+            <li><strong>4000+</strong><span>年茶文化历史</span></li>
+            <li><strong>6</strong><span>大基本茶类</span></li>
+            <li><strong>2022</strong><span>列入人类非遗名录</span></li>
+          </ul>
+
+          <div class="btn-group">
+            <a class="btn" href="about.html">了解茶史</a>
+            <a class="btn btn-outline" href="list.html">浏览名茶</a>
+          </div>
+        </div>
+
+        <!-- 右侧：拱门形图片 + 竖排诗句 -->
+        <div class="intro-visual reveal">
+          <figure class="intro-arch">
+            <img src="images/gaiwan-tea.svg" alt="青花盖碗中的一杯清茶，热气袅袅">
+          </figure>
+          <!-- 竖排诗句：<br> 换到下一列 -->
+          <p class="vertical-poem">
+            寒夜客来茶当酒<br>竹炉汤沸火初红
+            <cite>宋 · 杜耒《寒夜》<span class="seal">茶韵</span></cite>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 推荐内容：六大茶类卡片 ==================== -->
+    <section class="section section-tinted">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-sub">SIX TYPES OF TEA</span>
+          <h2>六大茶类</h2>
+          <p>按照加工工艺和发酵程度的不同，中国茶可以分为六大基本茶类。点击卡片查看该类名茶。</p>
+        </div>
+
+        <!-- 每张卡片是一个链接，跳转到列表页并自动筛选对应茶类（?type=绿茶） -->
+        <!-- class 里的 green / white / yellow... 决定卡片的颜色（颜色在 style.css 中定义） -->
+        <div class="tea-grid">
+          <a class="tea-card green reveal" href="list.html?type=绿茶">
+            <div class="tea-card-head">
+              <span class="tea-char">绿</span>
+              <div>
+                <h3>绿茶</h3>
+                <span class="tea-ferment">不发酵</span>
+              </div>
+            </div>
+            <p>清汤绿叶，鲜爽回甘。鲜叶经高温杀青保留了天然的绿色，是我国产量最大、历史最悠久的茶类。</p>
+            <div class="tea-card-foot">
+              <span>代表：西湖龙井 · 碧螺春</span>
+              <span class="more">查看 →</span>
+            </div>
+          </a>
+
+          <a class="tea-card white reveal" href="list.html?type=白茶">
+            <div class="tea-card-head">
+              <span class="tea-char">白</span>
+              <div>
+                <h3>白茶</h3>
+                <span class="tea-ferment">微发酵</span>
+              </div>
+            </div>
+            <p>不炒不揉，只经萎凋和干燥，最大程度保留茶叶本味。民间有“一年茶，三年药，七年宝”的说法。</p>
+            <div class="tea-card-foot">
+              <span>代表：白毫银针 · 白牡丹</span>
+              <span class="more">查看 →</span>
+            </div>
+          </a>
+
+          <a class="tea-card yellow reveal" href="list.html?type=黄茶">
+            <div class="tea-card-head">
+              <span class="tea-char">黄</span>
+              <div>
+                <h3>黄茶</h3>
+                <span class="tea-ferment">轻发酵</span>
+              </div>
+            </div>
+            <p>独特的“闷黄”工艺让茶叶呈现黄叶黄汤，滋味甘醇鲜爽，是六大茶类中产量最少的一类。</p>
+            <div class="tea-card-foot">
+              <span>代表：君山银针 · 霍山黄芽</span>
+              <span class="more">查看 →</span>
+            </div>
+          </a>
+
+          <a class="tea-card oolong reveal" href="list.html?type=青茶">
+            <div class="tea-card-head">
+              <span class="tea-char">青</span>
+              <div>
+                <h3>青茶（乌龙茶）</h3>
+                <span class="tea-ferment">半发酵</span>
+              </div>
+            </div>
+            <p>经过摇青做出“绿叶红镶边”，兼具绿茶的清香和红茶的醇厚，香气馥郁，耐冲泡。</p>
+            <div class="tea-card-foot">
+              <span>代表：铁观音 · 大红袍</span>
+              <span class="more">查看 →</span>
+            </div>
+          </a>
+
+          <a class="tea-card red reveal" href="list.html?type=红茶">
+            <div class="tea-card-head">
+              <span class="tea-char">红</span>
+              <div>
+                <h3>红茶</h3>
+                <span class="tea-ferment">全发酵</span>
+              </div>
+            </div>
+            <p>红汤红叶，甜醇温润。正山小种被认为是世界红茶的鼻祖，如今红茶是全球饮用最广泛的茶类。</p>
+            <div class="tea-card-foot">
+              <span>代表：祁门红茶 · 正山小种</span>
+              <span class="more">查看 →</span>
+            </div>
+          </a>
+
+          <a class="tea-card dark reveal" href="list.html?type=黑茶">
+            <div class="tea-card-head">
+              <span class="tea-char">黑</span>
+              <div>
+                <h3>黑茶</h3>
+                <span class="tea-ferment">后发酵</span>
+              </div>
+            </div>
+            <p>经渥堆发酵，汤色红浓、滋味醇和，适合长期存放，越陈越香，曾是茶马古道上的主要商品。</p>
+            <div class="tea-card-foot">
+              <span>代表：普洱熟茶 · 安化黑茶</span>
+              <span class="more">查看 →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 一杯茶的旅程（三个步骤） ==================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-sub">FROM LEAF TO CUP</span>
+          <h2>一杯茶的旅程</h2>
+          <p>从山间的一片嫩叶，到手中的一盏清茶</p>
+        </div>
+
+        <ol class="journey">
+          <li class="journey-step reveal">
+            <img class="journey-img" src="images/tea-field.svg" alt="晨光中的茶园">
+            <span class="journey-num">壹</span>
+            <h3>茶园 · 种植</h3>
+            <p>茶树喜温暖湿润，多生长在云雾缭绕的山坡上。海拔、土壤与气候，共同决定了一杯茶的品质。</p>
+          </li>
+          <li class="journey-step reveal">
+            <img class="journey-img" src="images/tea-picking.svg" alt="采茶人在茶园中采茶">
+            <span class="journey-num">贰</span>
+            <h3>采摘 · 制茶</h3>
+            <p>鲜叶采下后，经过萎凋、杀青、揉捻、发酵、干燥等工序的不同组合，形成风味各异的六大茶类。</p>
+          </li>
+          <li class="journey-step reveal">
+            <img class="journey-img" src="images/gongfu-set.svg" alt="紫砂壶与品茗杯组成的功夫茶具">
+            <span class="journey-num">叁</span>
+            <h3>冲泡 · 品饮</h3>
+            <p>好茶还需好水、好器。观汤色、闻茶香、品滋味，一杯茶里有山川草木，也有人情冷暖。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==================== 诗句横幅 ==================== -->
+    <section class="poem-banner">
+      <div class="container">
+        <blockquote class="reveal">
+          <p>从来佳茗似佳人</p>
+          <cite>—— 宋 · 苏轼《次韵曹辅寄壑源试焙新芽》</cite>
+          <a class="btn" href="gallery.html">走进茶韵图集</a>
+        </blockquote>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 页脚（5 个页面都一样） ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a class="logo" href="index.html">
+          <span class="logo-seal">茶</span>
+          <span class="logo-text">茶韵<small>中国茶文化</small></span>
+        </a>
+        <p>茶韵是一个介绍中国茶文化的主题网站。从茶的历史、六大茶类到品茶礼仪，带你走近一片树叶的千年旅程。</p>
+      </div>
+      <div>
+        <h3>站点导航</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html">茶史渊源</a></li>
+          <li><a href="gallery.html">茶韵图集</a></li>
+          <li><a href="list.html">名茶列表</a></li>
+          <li><a href="contact.html">留言板</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>联系我们</h3>
+        <ul class="footer-links">
+          <li>茶韵 · 茶文化社</li>
+          <li>XX 大学学生活动中心 302 室</li>
+          <li>每周三、周五 18:30 – 20:30</li>
+          <li>chayun@example.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <!-- 作业信息：把下面的课程名、姓名、学号换成你自己的 -->
+        <p>© 2026 茶韵 · 中国茶文化 ｜ 《网页设计与制作》课程期末作业 ｜ 制作：张同学 · 学号 2023xxxxxx</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮：页面滚动一段距离后才出现 -->
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+</body>
+</html>

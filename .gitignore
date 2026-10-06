@@ -1,0 +1,6 @@
+# 本地工具（截图/测试脚本），不部署
+.tools/
+node_modules/
+.DS_Store
+Thumbs.db
+.workbuddy/
